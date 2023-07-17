@@ -1,13 +1,6 @@
 'use client';
-import { StrictMode } from 'react';
-import { StoreProvider } from './contexts/storeContext';
+import { StoreProvider } from './contexts/StoreContext';
 
-const AppLayout = ({ children }) => {
-  return (
-    <StrictMode>
-      <StoreProvider>{children}</StoreProvider>
-    </StrictMode>
-  );
-};
+const AppLayout = ({ children }) => <StoreProvider>{children}</StoreProvider>;
 
 export default AppLayout;

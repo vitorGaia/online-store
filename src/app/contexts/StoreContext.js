@@ -6,7 +6,7 @@ const StoreContext = createContext();
 const StoreProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState({
     user: null,
-    cartItens: [],
+    homeItens: undefined,
   });
 
   const values = {

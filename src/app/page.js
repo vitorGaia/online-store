@@ -1,17 +1,11 @@
-import Link from "next/link";
+'use client';
 import AppLayout from "./AppLayout";
-import CategoriesList from "./components/CategoriesList";
+import Home from "./Home";
 
-export default function Home() {
+export default function App() {
   return (
     <AppLayout>
-      <section>
-        <Link href='/shoppingCart'>Carrinho de Compras</Link>
-
-        <CategoriesList />
-
-        <h3>Digite algum termo de pesquisa ou escolha uma categoria.</h3>
-      </section>
+      <Home />
     </AppLayout>
   )
 }
