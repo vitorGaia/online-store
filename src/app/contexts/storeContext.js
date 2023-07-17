@@ -5,8 +5,8 @@ const StoreContext = createContext();
 
 const StoreProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState({
-    cartItens: [],
     user: null,
+    cartItens: [],
   });
 
   const values = {
