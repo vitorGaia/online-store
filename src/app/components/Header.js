@@ -1,11 +1,15 @@
 import Link from "next/link";
+import { StoreContext } from "../contexts/StoreContext";
+import { useContext } from "react";
 
 function Header() {
+  const { setHeaderQueryInput, requestProducts } = useContext(StoreContext);
+
   return (
     <div>
-      <input type="text" />
+      <input type="text" onChange={ (e) => setHeaderQueryInput(e.target.value) } />
 
-      <button>Pesquisar</button>
+      <button onClick={ requestProducts }>Pesquisar</button>
 
       <Link href='/shoppingCart'>Carrinho de Compras</Link>
     </div>

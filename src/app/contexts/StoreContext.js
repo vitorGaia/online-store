@@ -1,17 +1,26 @@
 'use client';
-import { createContext, useState } from "react";
+import { getProductsFromCategoryAndQuery } from "@/services/api";
+import { createContext, useEffect, useState } from "react";
 
 const StoreContext = createContext();
 
 const StoreProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState({
     user: null,
-    homeItens: undefined,
+    homeProducts: undefined,
   });
+  const [headerQueryInput, setHeaderQueryInput] = useState('');
+
+  const requestProducts = async () => {
+    const products = await getProductsFromCategoryAndQuery('', headerQueryInput);
+    setGlobalState({ ...globalState, homeProducts: products.results });
+  };
 
   const values = {
     globalState,
     setGlobalState,
+    setHeaderQueryInput,
+    requestProducts,
   }
 
   return (
