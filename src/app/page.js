@@ -15,13 +15,15 @@ export default function Home() {
     <section>
       <Header />
 
-      <CategoriesList />
+      <main className="flex flex-col items-center justify-center mt-16">
+        <CategoriesList />
 
-      {!homeProducts && (<h3>Digite algum termo de pesquisa ou escolha uma categoria.</h3>)}
+        {!homeProducts && (<h3>Digite algum termo de pesquisa ou escolha uma categoria.</h3>)}
 
-      {(homeProducts && homeProducts.length === 0) && (<h3>Nenhum produto foi encontrado.</h3>)}
+        {(homeProducts && homeProducts.length === 0) && (<h3>Nenhum produto foi encontrado.</h3>)}
 
-      {(homeProducts && homeProducts.length !== 0) && mapHomeProducts}
+        {(homeProducts && homeProducts.length !== 0) && mapHomeProducts}
+      </main>
     </section>
   )
 }
