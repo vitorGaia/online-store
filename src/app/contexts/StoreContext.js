@@ -11,14 +11,15 @@ const StoreProvider = ({ children }) => {
   });
   const [headerQueryInput, setHeaderQueryInput] = useState('');
 
-  const requestProducts = async () => {
-    const products = await getProductsFromCategoryAndQuery('', headerQueryInput);
+  const requestProducts = async (categoryId, queryInput) => {
+    const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
     setGlobalState({ ...globalState, homeProducts: products.results });
   };
 
   const values = {
     globalState,
     setGlobalState,
+    headerQueryInput,
     setHeaderQueryInput,
     requestProducts,
   }

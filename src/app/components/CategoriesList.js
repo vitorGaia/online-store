@@ -1,8 +1,10 @@
 'use client';
 import { getCategories } from "@/services/api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { StoreContext } from "../contexts/StoreContext";
 
 function CategoriesList() {
+  const { requestProducts } = useContext(StoreContext);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -16,7 +18,7 @@ function CategoriesList() {
 
   const mapCategories = categories.map((category) => (
     <label key={category.id}>
-      <input type="radio" name="category" value={category.id} />
+      <input type="radio" value={category.id} onChange={ (e) => requestProducts(e.target.value, undefined) } />
       {category.name}
     </label>
   ));
