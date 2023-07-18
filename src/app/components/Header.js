@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { StoreContext } from "../contexts/StoreContext";
 import { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 
 function Header() {
-  const { headerQueryInput, setHeaderQueryInput, requestProducts } = useContext(StoreContext);
+  const { headerQueryInput, setHeaderQueryInput, requestProducts } = useContext(AppContext);
 
   return (
     <div>
@@ -11,7 +11,7 @@ function Header() {
 
       <button onClick={ () => requestProducts(undefined, headerQueryInput) }>Pesquisar</button>
 
-      <Link href='/shoppingCart'>Carrinho de Compras</Link>
+      <Link href='/ShoppingCart'>Carrinho de Compras</Link>
     </div>
   );
 }

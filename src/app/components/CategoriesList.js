@@ -1,10 +1,10 @@
 'use client';
 import { getCategories } from "@/services/api";
 import { useContext, useEffect, useState } from "react";
-import { StoreContext } from "../contexts/StoreContext";
+import { AppContext } from "../contexts/AppContext";
 
 function CategoriesList() {
-  const { requestProducts } = useContext(StoreContext);
+  const { requestProducts } = useContext(AppContext);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
