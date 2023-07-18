@@ -6,6 +6,7 @@ import { getProductById } from '@/services/api';
 import Image from 'next/image';
 import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../contexts/AppContext';
+import FormProductAvaliation from '../components/FormProductAvaliation';
 
 function ProductDetails() {
   const {
@@ -72,6 +73,7 @@ function ProductDetails() {
         {renderProduct}
         {renderProductInfos}
       </div>
+      <FormProductAvaliation />
     </section>
   );
 }

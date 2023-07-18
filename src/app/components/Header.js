@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <div>
-      <input type="text" onChange={ (e) => setHeaderQueryInput(e.target.value) } />
+      <input type="text" placeholder="Pesquisa" onChange={ (e) => setHeaderQueryInput(e.target.value) } />
 
       <button onClick={ () => requestProducts(undefined, headerQueryInput) }>Pesquisar</button>
 
