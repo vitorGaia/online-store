@@ -1,7 +1,16 @@
-function compararPorId(a, b) {
+const compararPorId = (a, b) => {
   if (a.id < b.id) return -1;
   if (a.id > b.id) return 1;
   return 0;
+}
+
+const countProductQuantity = (product) => {
+  const localProducts = getProductsFromLocalStorage();
+  const filterProducts = localProducts.filter((localProduct) => localProduct.id === product.id);
+  if (product.available_quantity <= filterProducts.length) {
+    return false
+  }
+  return true;
 }
 
 export const getProductsFromLocalStorage = () => {
@@ -10,6 +19,7 @@ export const getProductsFromLocalStorage = () => {
 };
 
 export const setProductToLocalStorage = (product) => {
+  if (!countProductQuantity(product)) return;
   const localProducts = getProductsFromLocalStorage();
   const newProducts = [...localProducts, product].sort(compararPorId);
   localStorage.setItem('cartProducts', JSON.stringify(newProducts));
