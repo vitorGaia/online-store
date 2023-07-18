@@ -15,6 +15,9 @@ function ProductCard({ product }) {
           height={150}
         />
       </Link>
+      <span>{`Frete Grátis - ${product.shipping && product.shipping.free_shipping}`}</span>
+      <span>{`Estoque - ${product.available_quantity}`}</span>
+      <br/>
       <span>{ `R$${product.price}` }</span>
       <br/>
       <button onClick={ () => setProductToLocalStorage(product) }>Adicionar ao Carrinho</button>
