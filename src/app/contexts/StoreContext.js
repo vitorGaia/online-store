@@ -9,6 +9,7 @@ const StoreProvider = ({ children }) => {
     user: null,
     homeProducts: undefined,
   });
+  
   const [headerQueryInput, setHeaderQueryInput] = useState('');
 
   const requestProducts = async (categoryId, queryInput) => {
