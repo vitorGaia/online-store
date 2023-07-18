@@ -31,3 +31,23 @@ export const removeAllProductFromLocalStorage = (id) => {
     .sort(compararPorId);
   localStorage.setItem('cartProducts', JSON.stringify(newProducts));
 };
+
+export const getAvaliationsFromLocalStorage = () => {
+  const avaliations = localStorage.getItem('avaliationProducts');
+  return avaliations ? JSON.parse(avaliations) : [];
+};
+
+export const setAvaliationToLocalStorage = (avaliation) => {
+  const localAvaliations = getAvaliationsFromLocalStorage();
+  const newAvaliations = [...localAvaliations, avaliation];
+  localStorage.setItem('avaliationProducts', JSON.stringify(newAvaliations));
+};
+
+export const removeAvaliationFromLocalStorage = (avaliationId) => {
+  const localAvaliations = getAvaliationsFromLocalStorage();
+  const indexAvaliation = localAvaliations
+    .findIndex((avaliation) => avaliation.avaliationId === avaliationId);
+  const newAvaliations = localAvaliations
+    .filter((_avaliation, index) => index !== indexAvaliation);
+  localStorage.setItem('avaliationProducts', JSON.stringify(newAvaliations));
+};

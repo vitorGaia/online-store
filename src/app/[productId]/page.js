@@ -73,7 +73,7 @@ function ProductDetails() {
         {renderProduct}
         {renderProductInfos}
       </div>
-      <FormProductAvaliation />
+      <FormProductAvaliation productId={ productId } />
     </section>
   );
 }
