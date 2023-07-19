@@ -5,27 +5,29 @@ import React from 'react';
 
 function ProductCard({ product }) {
   return (
-    <div key={ product.id } className='flex-col gap-1 w-2/4 h-64 p-3 border-solid border-red-500'>
-      <Link href={`/pages/${ product.id }`}>
+    <div key={product.id} className='flex-col justify-center align-middle w-2/4 h-64 p-2'>
+      <Link href={`/pages/${product.id}`}>
         <Image
-          src={ product.thumbnail }
-          alt={ product.title }
+          src={product.thumbnail}
+          alt={product.title}
           width={150}
           height={150}
           placeholder="blur"
-          blurDataURL={ product.thumbnail }
-          className='w-screen'
-          />
+          blurDataURL={product.thumbnail}
+          className='w-screen rounded'
+        />
+        <div className='h-6 mt-1 overflow-hidden'>
+          <p className={`${product.shipping.free_shipping && 'text-green-300'} text-sm font-semibold truncate`}>
+            {product.title}
+          </p>
+        </div>
       </Link>
-      <p className={`${ product.shipping.free_shipping && 'text-green-400' } text-xs`}>
-        { `${product.title.slice(0, 45)}...` }
-      </p>
-      <p className='text-tx text-justify'>
-        {`Estq. ${product.available_quantity} R$${product.price}`}
+      <p className='text-sm font-medium'>
+        {`Estq. ${product.available_quantity} R$${product.price.toFixed(2)}`}
       </p>
       <button
-        onClick={ () => setProductToLocalStorage(product) }
-        className='bg-blue-500 hover:bg-blue-700 font-bold'
+        onClick={() => setProductToLocalStorage(product)}
+        className='bg-blue-500 hover:bg-blue-600 font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded px-1'
       >
         Adicionar ao Carrinho
       </button>

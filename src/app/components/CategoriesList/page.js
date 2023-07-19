@@ -19,20 +19,23 @@ function CategoriesList() {
   const mapCategories = categories.map((category) => (
     <label
       key={category.id}
-      className="flex items-center ml-2"
+      className="flex justify-center"
+      htmlFor="category"
     >
-      <input
-        type="radio"
+      <button
+        id="category"
+        type="button"
         value={category.id}
-        onChange={ (e) => handleActiveSearch('category', e.target.value) }
-        className="form-radio"
-      />
+        onClick={ (e) => handleActiveSearch('category', e.target.value) }
+        className="text-lg font-normal tracking-wide h-10"
+      >
       {category.name}
+      </button>
     </label>
   ));
 
   return (
-    <div className={`${activeSearch ? 'grid' : 'hidden'} grid-cols-1 w-8/12`}>
+    <div className={`${activeSearch ? 'grid' : 'hidden'} divide-y divide-slate-700 w-11/12`}>
       {mapCategories}
     </div>
   );

@@ -16,12 +16,12 @@ export default function Home() {
     <section className="bg-gray-900 w-screen min-h-screen text-slate-100">
       <Header />
 
-      <main className="flex flex-wrap align-middle justify-center pt-16 p-2 gap-1">
+      <main className="flex flex-wrap align-middle justify-center pt-16 px-1">
         <CategoriesList />
 
-        {!homeProducts && (<h3 className="text-center">Digite algum termo de pesquisa ou escolha uma categoria.</h3>)}
+        {!homeProducts && (<h3 className="text-center pt-6">Digite algum termo de pesquisa ou escolha uma categoria.</h3>)}
 
-        {(homeProducts && homeProducts.length === 0) && (<h3 className="text-center">Nenhum produto foi encontrado.</h3>)}
+        {(homeProducts && homeProducts.length === 0) && (<h3 className="text-center pt-6">Nenhum produto foi encontrado.</h3>)}
 
         {(homeProducts && homeProducts.length !== 0) && mapHomeProducts}
       </main>
