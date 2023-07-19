@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
     homeProducts: undefined,
   });
   const [headerQueryInput, setHeaderQueryInput] = useState('');
+  const [activeSearch, setActiveSearch] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
   const [attLocalStorage, setAttLocalStorage] = useState(false);
   const [avaliation, setAvaliation] = useState({
@@ -67,7 +68,7 @@ const AppProvider = ({ children }) => {
     return index === self.findIndex((o) => o.id === obj.id);
   });
 
-  const handleForm = (e) => setAvaliation({ ...avaliation, [e.target.name]: e.target.value });
+  const handleFormAvaliation = (e) => setAvaliation({ ...avaliation, [e.target.name]: e.target.value });
 
   const addAvaliation = (productId) => {
     setAvaliationToLocalStorage({ ...avaliation, productId});
@@ -81,11 +82,23 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const handleActiveSearch = () => {
+    if (activeSearch) {
+      requestProducts(undefined, headerQueryInput);
+      setActiveSearch(false);
+      return;
+    }
+    setActiveSearch(true);
+    return;
+  };
+
   const values = {
     globalState,
     setGlobalState,
     headerQueryInput,
     setHeaderQueryInput,
+    activeSearch,
+    setActiveSearch,
     requestProducts,
     shoppingCart,
     setShoppingCart,
@@ -98,9 +111,10 @@ const AppProvider = ({ children }) => {
     countProductPrice,
     countTotalPrice,
     uniqueArray,
-    handleForm,
+    handleFormAvaliation,
     avaliation,
     addAvaliation,
+    handleActiveSearch,
   };
 
   return (

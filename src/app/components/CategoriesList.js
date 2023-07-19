@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../contexts/AppContext";
 
 function CategoriesList() {
-  const { requestProducts } = useContext(AppContext);
+  const { requestProducts, activeSearch } = useContext(AppContext);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -17,14 +17,22 @@ function CategoriesList() {
   }, []);
 
   const mapCategories = categories.map((category) => (
-    <label key={category.id}>
-      <input type="radio" value={category.id} onChange={ (e) => requestProducts(e.target.value, undefined) } />
+    <label
+      key={category.id}
+      class="flex items-center ml-2"
+    >
+      <input
+        type="radio"
+        value={category.id}
+        onChange={ (e) => requestProducts(e.target.value, undefined) }
+        class="form-radio"
+      />
       {category.name}
     </label>
   ));
 
   return (
-    <div>
+    <div className={`${activeSearch ? 'grid' : 'hidden'} grid-cols-1 w-8/12`}>
       {mapCategories}
     </div>
   );

@@ -12,15 +12,15 @@ export default function Home() {
   const mapHomeProducts = homeProducts && homeProducts.map((product) => ProductCard({ product }));
 
   return (
-    <section>
+    <section className="bg-gray-900 w-screen min-h-screen text-slate-100">
       <Header />
 
-      <main className="flex flex-col items-center justify-center mt-16">
+      <main className="flex flex-col items-center justify-center pt-14">
         <CategoriesList />
 
-        {!homeProducts && (<h3>Digite algum termo de pesquisa ou escolha uma categoria.</h3>)}
+        {!homeProducts && (<h3 className="text-center">Digite algum termo de pesquisa ou escolha uma categoria.</h3>)}
 
-        {(homeProducts && homeProducts.length === 0) && (<h3>Nenhum produto foi encontrado.</h3>)}
+        {(homeProducts && homeProducts.length === 0) && (<h3 className="text-center">Nenhum produto foi encontrado.</h3>)}
 
         {(homeProducts && homeProducts.length !== 0) && mapHomeProducts}
       </main>
