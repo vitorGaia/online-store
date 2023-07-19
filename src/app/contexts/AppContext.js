@@ -14,8 +14,9 @@ const AppProvider = ({ children }) => {
   const [activeSearch, setActiveSearch] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
   const [attLocalStorage, setAttLocalStorage] = useState(false);
+  const [avaliations, setAvaliations] = useState(getAvaliationsFromLocalStorage() || []);
   const [avaliation, setAvaliation] = useState({
-    avaliationId: getAvaliationsFromLocalStorage().length + 1,
+    avaliationId: avaliations.length + 1,
     productId: '',
     email: '',
     rating: 0,
@@ -74,7 +75,7 @@ const AppProvider = ({ children }) => {
     setAvaliationToLocalStorage({ ...avaliation, productId});
     setAttLocalStorage(true);
     setAvaliation({
-      avaliationId: getAvaliationsFromLocalStorage().length + 1,
+      avaliationId: avaliations.length + 1,
       productId: '',
       email: '',
       rating: 0,

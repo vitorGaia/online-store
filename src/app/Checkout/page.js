@@ -23,7 +23,7 @@ function Checkout(props) {
   }, [setAttLocalStorage, setShoppingCart]);
 
   const renderProducts = uniqueArray.map((product) => (
-    <div key={product.id}>
+    <div key={`checkout${product.id}`}>
       <button onClick={ () => removeAllProductToCart(product.id)}> x </button>
       <Image
         src={ product.thumbnail }

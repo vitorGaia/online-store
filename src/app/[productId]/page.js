@@ -37,41 +37,37 @@ function ProductDetails() {
     setAttLocalStorage(false);
   }, [attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
-  const renderProduct = product && [product].map((product) => (
-    <div key={product.id}>
-      <h3>{product.title}</h3>
-      <Image
-        src={ product.thumbnail }
-        alt={ product.title }
-        width={500}
-        height={500}
-        priority
-      />
-    </div>
-  ));
-
-  const renderProductInfos = product && [product].map((product) => (
-    <div key={`0${product.id}`}>
-      <h3>Especificações técnicas</h3>
-      <span>{`Frete Grátis - ${product.shipping && product.shipping.free_shipping}`}</span>
-      <span>{`Estoque - ${product.available_quantity}`}</span>
-
-      <div>
-        <h4>{`R$${ countProductPrice[product.id] || product.price }`}</h4>
-
-        <button onClick={ () => removeProductToCart(product.id) }> - </button>
-        <span>{ countProduct[product.id] || 0 }</span>
-        <button onClick={ () => addProductToCart(product) }> + </button>
-      </div>
-    </div>
-  ));
+  const { id, title, thumbnail, shipping, price, available_quantity } = product && product;
 
   return (
     <section>
       <Header />
       <div>
-        {renderProduct}
-        {renderProductInfos}
+        <div>
+          <h3>{title}</h3>
+          {thumbnail && (
+            <Image
+              src={ thumbnail }
+              alt={ title }
+              width={500}
+              height={500}
+              quality={100}
+            />
+          )}
+        </div>
+        <div>
+          <h3>Especificações técnicas</h3>
+          <span>{`Frete Grátis - ${shipping && shipping.free_shipping}`}</span>
+          <span>{`Estoque - ${available_quantity}`}</span>
+
+          <div>
+            <h4>{`R$${ countProductPrice[id] || price }`}</h4>
+
+            <button onClick={ () => removeProductToCart(id) }> - </button>
+            <span>{ countProduct[id] || 0 }</span>
+            <button onClick={ () => addProductToCart(product) }> + </button>
+          </div>
+        </div>
       </div>
       <FormProductAvaliation productId={ productId } />
     </section>

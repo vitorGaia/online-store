@@ -27,7 +27,7 @@ export default function ShoppingCart() {
   }, [attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
   const renderProducts = uniqueArray.map((product) => (
-    <div key={product.id}>
+    <div key={`shoppingCart${product.id}`}>
       <button onClick={ () => removeAllProductToCart(product.id)}> x </button>
       <Image
         src={ product.thumbnail }

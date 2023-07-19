@@ -1,4 +1,5 @@
 'use client';
+import './globals.css';
 import { useContext } from "react";
 import CategoriesList from "./components/CategoriesList";
 import Header from "./components/Header";

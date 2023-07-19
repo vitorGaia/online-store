@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../contexts/AppContext";
 import { getProductsFromLocalStorage } from "@/services/localStorage";
 import { BiCart, BiSearchAlt2 } from "react-icons/bi";
@@ -8,8 +8,12 @@ import logo from "../../../public/logo-frontend-online-store.svg";
 
 function Header() {
   const { setHeaderQueryInput, activeSearch, handleActiveSearch } = useContext(AppContext);
+  const [countProducts, setCountProducts] = useState(0);
 
-  const countProducts = getProductsFromLocalStorage().length;
+  useEffect(() => {
+    const products = getProductsFromLocalStorage();
+    setCountProducts(products.length);
+  }, []);
 
   return (
     <div className="fixed flex top-0 left-0 w-screen bg-blue-500 p-3.5 justify-between shadow-md">

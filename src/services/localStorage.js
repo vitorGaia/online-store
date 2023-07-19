@@ -14,8 +14,10 @@ const countProductQuantity = (product) => {
 }
 
 export const getProductsFromLocalStorage = () => {
-  const products = localStorage.getItem('cartProducts');
-  return products ? JSON.parse(products) : [];
+  if (typeof window !== 'undefined') {
+    const products = localStorage.getItem('cartProducts');
+    return products ? JSON.parse(products) : [];
+  }
 };
 
 export const setProductToLocalStorage = (product) => {
@@ -43,8 +45,10 @@ export const removeAllProductFromLocalStorage = (id) => {
 };
 
 export const getAvaliationsFromLocalStorage = () => {
-  const avaliations = localStorage.getItem('avaliationProducts');
-  return avaliations ? JSON.parse(avaliations) : [];
+  if (typeof window !== 'undefined') {
+    const avaliations = localStorage.getItem('avaliationProducts');
+    return avaliations ? JSON.parse(avaliations) : [];
+  }
 };
 
 export const setAvaliationToLocalStorage = (avaliation) => {

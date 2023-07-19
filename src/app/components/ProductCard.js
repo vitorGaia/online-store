@@ -18,11 +18,9 @@ function ProductCard({ product }) {
       <p className={`${ product.shipping.free_shipping && 'text-green-400' } text-xs`}>
         { `${product.title.slice(0, 45)}...` }
       </p>
-      <br/>
       <p className='text-tx text-justify'>
         {`Estq. ${product.available_quantity} R$${product.price}`}
       </p>
-      <br/>
       <button onClick={ () => setProductToLocalStorage(product) }>Adicionar ao Carrinho</button>
     </div>
   );
