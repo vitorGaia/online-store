@@ -16,17 +16,17 @@ function Header() {
   }, []);
 
   return (
-    <div className="fixed flex top-0 left-0 w-screen bg-blue-500 p-3.5 justify-between shadow-md">
+    <div className="fixed flex top-0 left-0 w-screen bg-accent p-3.5 justify-between shadow-md">
       <div className="flex justify-center align-middle gap-2">
         <input
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-transparent border-2 border-green-400 font-normal text-lg px-2 rounded-sm`}
+          className={`${activeSearch ? '' : 'hidden'} w-52 bg-transparent border-2 border-accentM font-normal text-lg px-2 rounded-sm`}
         />
 
         <button onClick={ () => handleActiveSearch('header') }>
-          <BiSearchAlt2 className="text-2xl font-black text-green-400" />
+          <BiSearchAlt2 className="text-2xl font-black text-accentM" />
         </button>
       </div>
 
@@ -39,8 +39,8 @@ function Header() {
       />
 
       <Link href='/pages/ShoppingCart' className="flex justify-center align-middle">
-        <BiCart className="text-2xl font-black text-green-400" />
-        <span className="text-green-400">{countProducts}</span>
+        <BiCart className="text-2xl font-black text-accentM" />
+        <span className="text-accentM">{countProducts}</span>
       </Link>
     </div>
   );

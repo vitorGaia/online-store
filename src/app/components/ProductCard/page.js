@@ -17,7 +17,7 @@ function ProductCard({ product }) {
           className='w-screen rounded'
         />
         <div className='h-6 mt-1 overflow-hidden'>
-          <p className={`${product.shipping.free_shipping && 'text-green-300'} text-sm font-semibold truncate`}>
+          <p className={`${product.shipping.free_shipping && 'text-pink-200'} text-sm font-semibold truncate`}>
             {product.title}
           </p>
         </div>
@@ -27,7 +27,7 @@ function ProductCard({ product }) {
       </p>
       <button
         onClick={() => setProductToLocalStorage(product)}
-        className='bg-blue-500 hover:bg-blue-600 font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded px-1'
+        className='bg-accent tracking-wide font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded px-1'
       >
         Adicionar ao Carrinho
       </button>

@@ -13,7 +13,7 @@ export default function Home() {
   const mapHomeProducts = homeProducts && homeProducts.map((product) => ProductCard({ product }));
 
   return (
-    <section className="bg-gray-900 w-screen min-h-screen text-slate-100">
+    <section className="bg-base w-screen min-h-screen text-fontM">
       <Header />
 
       <main className="flex flex-wrap align-middle justify-center pt-16 px-1">
