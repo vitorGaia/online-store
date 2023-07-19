@@ -5,20 +5,23 @@ import React from 'react';
 
 function ProductCard({ product }) {
   return (
-    <div key={ product.id }>
-      <h4>{ product.title }</h4>
+    <div key={ product.id } className='flex-col gap-1 w-2/4 h-64 p-3'>
       <Link href={`/${ product.id }`}>
         <Image
           src={ product.thumbnail }
           alt={ product.title }
           width={150}
           height={150}
-        />
+          className='w-screen'
+          />
       </Link>
-      <span>{`Frete Grátis - ${product.shipping && product.shipping.free_shipping}`}</span>
-      <span>{`Estoque - ${product.available_quantity}`}</span>
+      <p className={`${ product.shipping.free_shipping && 'text-green-400' } text-xs`}>
+        { `${product.title.slice(0, 45)}...` }
+      </p>
       <br/>
-      <span>{ `R$${product.price}` }</span>
+      <p className='text-tx text-justify'>
+        {`Estq. ${product.available_quantity} R$${product.price}`}
+      </p>
       <br/>
       <button onClick={ () => setProductToLocalStorage(product) }>Adicionar ao Carrinho</button>
     </div>

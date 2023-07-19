@@ -7,7 +7,7 @@ import Image from "next/image";
 import logo from "../../../public/logo-frontend-online-store.svg";
 
 function Header() {
-  const { headerQueryInput, setHeaderQueryInput, requestProducts, activeSearch, setActiveSearch, handleActiveSearch } = useContext(AppContext);
+  const { setHeaderQueryInput, activeSearch, handleActiveSearch } = useContext(AppContext);
 
   const countProducts = getProductsFromLocalStorage().length;
 
@@ -21,7 +21,7 @@ function Header() {
           className={`${activeSearch ? '' : 'hidden'} w-52 bg-transparent border-2 border-green-400 font-normal text-lg px-2 rounded-sm`}
         />
 
-        <button onClick={ handleActiveSearch }>
+        <button onClick={ () => handleActiveSearch('header') }>
           <BiSearchAlt2 className="text-2xl font-black text-green-400" />
         </button>
       </div>
@@ -29,9 +29,9 @@ function Header() {
       <Image
         src={ logo }
         alt='Front end online store logo'
-        width={100}
-        height={100}
-        className={`${activeSearch ? 'hidden' : ''}`}
+        width='auto'
+        height='auto'
+        className={`${activeSearch ? 'hidden' : ''} w-28`}
       />
 
       <Link href='/ShoppingCart' className="flex justify-center align-middle">

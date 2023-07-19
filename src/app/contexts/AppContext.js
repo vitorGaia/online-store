@@ -82,9 +82,13 @@ const AppProvider = ({ children }) => {
     });
   };
 
-  const handleActiveSearch = () => {
-    if (activeSearch) {
+  const handleActiveSearch = (requestType, targetValue) => {
+    if (activeSearch && requestType === 'header') {
       requestProducts(undefined, headerQueryInput);
+      setActiveSearch(false);
+      return;
+    } else if (activeSearch && requestType === 'category') {
+      requestProducts( targetValue, undefined);
       setActiveSearch(false);
       return;
     }
