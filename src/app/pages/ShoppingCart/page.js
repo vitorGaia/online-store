@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect } from "react";
-import { AppContext } from "../contexts/AppContext";
+import { AppContext } from "../../contexts/AppContext";
 import { getProductsFromLocalStorage } from "@/services/localStorage";
 
 export default function ShoppingCart() {
@@ -52,7 +52,7 @@ export default function ShoppingCart() {
       {shoppingCart.length === 0 && (<h3>Seu carrinho está vazio</h3>)}
       {shoppingCart.length !== 0 && renderProducts}
       <h2>{ `Total - R$${countTotalPrice}` }</h2>
-      <Link href='/Checkout'>Finalizar Compra</Link>
+      <Link href='/pages/Checkout'>Finalizar Compra</Link>
     </section>
   );
 }

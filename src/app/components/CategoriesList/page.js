@@ -1,7 +1,7 @@
 'use client';
 import { getCategories } from "@/services/api";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../contexts/AppContext";
+import { AppContext } from "../../contexts/AppContext";
 
 function CategoriesList() {
   const { activeSearch, handleActiveSearch } = useContext(AppContext);

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../contexts/AppContext";
+import { AppContext } from "../../contexts/AppContext";
 import { getProductsFromLocalStorage } from "@/services/localStorage";
 import { BiCart, BiSearchAlt2 } from "react-icons/bi";
 import Image from "next/image";
-import logo from "../../../public/logo-frontend-online-store.svg";
+import logo from "../../../../public/logo-frontend-online-store.svg";
 
 function Header() {
   const { setHeaderQueryInput, activeSearch, handleActiveSearch } = useContext(AppContext);
@@ -38,7 +38,7 @@ function Header() {
         className={`${activeSearch ? 'hidden' : ''} w-28`}
       />
 
-      <Link href='/ShoppingCart' className="flex justify-center align-middle">
+      <Link href='/pages/ShoppingCart' className="flex justify-center align-middle">
         <BiCart className="text-2xl font-black text-green-400" />
         <span className="text-green-400">{countProducts}</span>
       </Link>

@@ -1,12 +1,12 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
-import Header from '../components/Header';
+import Header from '../../components/Header/page';
 import { getProductById } from '@/services/api';
 import Image from 'next/image';
 import { getProductsFromLocalStorage } from '@/services/localStorage';
-import { AppContext } from '../contexts/AppContext';
-import FormProductAvaliation from '../components/FormProductAvaliation';
+import { AppContext } from '../../contexts/AppContext';
+import FormProductAvaliation from '../../components/FormProductAvaliation/page';
 
 function ProductDetails() {
   const {
@@ -20,7 +20,7 @@ function ProductDetails() {
   } = useContext(AppContext);
   const [product, setProduct] = useState({});
   const pathname = usePathname();
-  const productId = pathname.replace("/", "");
+  const productId = pathname.replace("/pages/", "");
 
   useEffect(() => {
     const fetchProduct = async () => {

@@ -1,10 +1,10 @@
 'use client';
 import React, { useContext, useEffect } from 'react';
-import { AppContext } from '../contexts/AppContext';
+import { AppContext } from '../../contexts/AppContext';
 import Image from 'next/image';
 import { getProductsFromLocalStorage } from '@/services/localStorage';
-import FormCheckout from '../components/FormCheckout';
-import Header from '../components/Header';
+import FormCheckout from '../../components/FormCheckout/page';
+import Header from '../../components/Header/page';
 
 function Checkout(props) {
   const {
