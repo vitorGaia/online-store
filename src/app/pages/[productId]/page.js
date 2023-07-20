@@ -8,7 +8,7 @@ import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../../contexts/AppContext';
 import FormProductAvaliation from '../../components/FormProductAvaliation/page';
 import CategoriesList from '@/app/components/CategoriesList/page';
-import { BiChevronsLeft, BiChevronsRight, BiMinusCircle, BiPlusCircle, BiSolidMinusCircle, BiSolidPlusCircle } from "react-icons/bi";
+import { BiSolidMinusCircle, BiSolidPlusCircle } from "react-icons/bi";
 
 function ProductDetails() {
   const {
@@ -43,11 +43,11 @@ function ProductDetails() {
 
   return (
     <section
-      className='bg-base w-screen min-h-screen text-fontM font-popins'
+      className='bg-base w-screen min-h-screen text-fontM'
     >
       <Header />
       <main
-        className='flex flex-wrap justify-center pt-16'
+        className='flex flex-wrap justify-center pt-14'
       >
         <CategoriesList />
         {thumbnail && (
@@ -61,7 +61,7 @@ function ProductDetails() {
         )}
         <div className='px-2 flex flex-col gap-2'>
           <h3
-            className={ `${(shipping && shipping.free_shipping) && 'text-accent'} text-xl font-bold leading-6 pt-2`
+            className={ `${(shipping && shipping.free_shipping) && 'text-accentM'} text-xl font-bold leading-6 pt-2`
           }>
             {title}
           </h3>
@@ -85,7 +85,7 @@ function ProductDetails() {
               onClick={ () => removeProductToCart(id) }
             >
               <BiSolidMinusCircle
-                className='text-6xl text-accentM'
+                className='text-6xl'
               />
             </button>
             <p
@@ -97,7 +97,7 @@ function ProductDetails() {
               onClick={ () => addProductToCart(product) }
             >
               <BiSolidPlusCircle
-                className='text-6xl text-accentM'
+                className='text-6xl'
               />
             </button>
           </div>
