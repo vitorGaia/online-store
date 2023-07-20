@@ -8,7 +8,8 @@ import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../../contexts/AppContext';
 import FormProductAvaliation from '../../components/FormProductAvaliation/page';
 import CategoriesList from '@/app/components/CategoriesList/page';
-import { BiSolidMinusCircle, BiSolidPlusCircle } from "react-icons/bi";
+import { BiCartAlt, BiSolidMinusCircle, BiSolidPlusCircle } from "react-icons/bi";
+import Link from 'next/link';
 
 function ProductDetails() {
   const {
@@ -73,11 +74,16 @@ function ProductDetails() {
           <span className='font-medium text-gray-300'>
             {`Quantidade em estoque. ${available_quantity}`}
           </span>
-          <h4
-            className='text-accent text-4xl font-semibold'
-          >
-            {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
-          </h4>
+          <div className='flex items-center justify-between'>
+            <h4
+              className='text-accent text-4xl font-semibold'
+            >
+              {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
+            </h4>
+            <Link href='/pages/ShoppingCart'>
+              <BiCartAlt className='text-4xl font-semibold mr-4' />
+            </Link>
+          </div>
           <div
             className='flex justify-center items-center align-middle gap-6 h-24'
           >

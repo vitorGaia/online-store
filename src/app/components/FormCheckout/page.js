@@ -1,4 +1,6 @@
+import { CreditCard } from '@mui/icons-material';
 import React from 'react';
+import { BiBarcode, BiLogoMastercard, BiLogoVisa } from 'react-icons/bi';
 
 function FormCheckout() {
   return (
@@ -63,11 +65,11 @@ function FormCheckout() {
           placeholder='Estado'
         />
       </div>
-      <div className='flex gap-2'>
-        <label><input type='radio' />Boleto</label>
-        <label><input type='radio' />Visa</label>
-        <label><input type='radio' />MasterCard</label>
-        <label><input type='radio' />Elo</label>
+      <div className='flex gap-4'>
+        <button className='text-3xl'><BiBarcode/></button>
+        <button className='text-5xl'><BiLogoVisa/></button>
+        <button className='text-4xl'><BiLogoMastercard/></button>
+        <button className='text-5xl flex justify-center items-center'><CreditCard/></button>
       </div>
       <button type='submit' className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'>Comprar</button>
     </form>

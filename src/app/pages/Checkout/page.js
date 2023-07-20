@@ -15,13 +15,14 @@ function Checkout(props) {
     countProduct,
     countProductPrice,
     uniqueArray,
+    attLocalStorage,
   } = useContext(AppContext);
   
   useEffect(() => {
     const shoppingCart = getProductsFromLocalStorage();
     setShoppingCart(shoppingCart);
     setAttLocalStorage(false);
-  }, [setAttLocalStorage, setShoppingCart]);
+  }, [ attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
   const renderProducts = uniqueArray.map((product) => (
     <div key={`checkout${product.id}`} className="flex p-2 gap-1 bg-gray-700 bg-opacity-20 z-0 h-28 relative rounded-sm">

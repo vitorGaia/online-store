@@ -23,11 +23,6 @@ const AppProvider = ({ children }) => {
     message: '',
   });
 
-  useEffect(() => {
-    const locaAvaliations = getAvaliationsFromLocalStorage();
-    setAvaliations(locaAvaliations);
-  }, []);
-
   const requestProducts = async (categoryId, queryInput) => {
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
     setGlobalState({ ...globalState, homeProducts: products.results });
