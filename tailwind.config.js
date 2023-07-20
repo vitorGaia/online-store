@@ -13,10 +13,13 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        accent: '#E23E57',
-        accentM: '#4ECCA3',
-        base: '#222831',
-        fontM: '#F5F5F5',
+        accent: '#F1C376',
+        accentM: '#606C5D',
+        base: '#F7E6C4',
+        fontM: '#2B2730',
+      },
+      fontFamily: {
+        'poppins': ['poppins', 'poppins'],
       },
     },
   },

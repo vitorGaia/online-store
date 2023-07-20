@@ -27,7 +27,7 @@ function CategoriesList() {
         type="button"
         value={category.id}
         onClick={ (e) => handleActiveSearch('category', e.target.value) }
-        className="text-lg font-normal tracking-wide h-10"
+        className="text-lg font-medium tracking-wide h-9"
       >
       {category.name}
       </button>
@@ -35,7 +35,7 @@ function CategoriesList() {
   ));
 
   return (
-    <div className={`${activeSearch ? 'grid' : 'hidden'} divide-y divide-slate-700 w-11/12`}>
+    <div className={`${activeSearch ? 'flex flex-col' : 'hidden'} divide-y-2 divide-accentM w-11/12`}>
       {mapCategories}
     </div>
   );

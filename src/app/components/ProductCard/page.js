@@ -17,17 +17,17 @@ function ProductCard({ product }) {
           className='w-screen rounded'
         />
         <div className='h-6 mt-1 overflow-hidden'>
-          <p className={`${product.shipping.free_shipping && 'text-pink-200'} text-sm font-semibold truncate`}>
+          <p className={`${product.shipping.free_shipping && 'text-accentM'} text-sm font-semibold truncate`}>
             {product.title}
           </p>
         </div>
       </Link>
       <p className='text-sm font-medium'>
-        {`Estq. ${product.available_quantity} R$${product.price.toFixed(2)}`}
+        {`Estq.${product.available_quantity} R$${product.price.toFixed(2)}`}
       </p>
       <button
         onClick={() => setProductToLocalStorage(product)}
-        className='bg-accent tracking-wide font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'
+        className='bg-accent tracking-wide font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1'
       >
         Adicionar ao Carrinho
       </button>

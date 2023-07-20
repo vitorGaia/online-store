@@ -39,53 +39,53 @@ function FormProductAvaliation(props) {
             onChange={ handleFormAvaliation }
           />
           <div className='flex justify-center items-center gap-2'>
-            <label>
+            <label className='flex items-center font-medium text-accentM'>
               <input
-                className=''
+                className='bg-transparent border-accentM'
                 type='radio'
                 value={1}
                 name='rating'
-                onChange={ handleFormAvaliation }
+                onChange={handleFormAvaliation}
               />
               1
             </label>
-            <label>
+            <label className='flex items-center font-medium text-accentM'>
               <input
-                className=''
+                className='bg-transparent border-accentM'
                 type='radio'
                 value={2}
                 name='rating'
-                onChange={ handleFormAvaliation }
+                onChange={handleFormAvaliation}
               />
               2
             </label>
-            <label>
+            <label className='flex items-center font-medium text-accentM'>
               <input
-                className=''
+                className='bg-transparent border-accentM'
                 type='radio'
                 value={3}
                 name='rating'
-                onChange={ handleFormAvaliation }
+                onChange={handleFormAvaliation}
               />
               3
             </label>
-            <label>
+            <label className='flex items-center font-medium text-accentM'>
               <input
-                className=''
+                className='bg-transparent border-accentM'
                 type='radio'
                 value={4}
                 name='rating'
-                onChange={ handleFormAvaliation }
+                onChange={handleFormAvaliation}
               />
               4
             </label>
-            <label>
+            <label className='flex items-center font-medium text-accentM'>
               <input
-                className=''
+                className='bg-transparent border-accentM'
                 type='radio'
                 value={5}
                 name='rating'
-                onChange={ handleFormAvaliation }
+                onChange={handleFormAvaliation}
               />
               5
             </label>

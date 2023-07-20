@@ -8,7 +8,7 @@ import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../../contexts/AppContext';
 import FormProductAvaliation from '../../components/FormProductAvaliation/page';
 import CategoriesList from '@/app/components/CategoriesList/page';
-import { BiChevronsLeft, BiChevronsRight } from "react-icons/bi";
+import { BiChevronsLeft, BiChevronsRight, BiMinusCircle, BiPlusCircle, BiSolidMinusCircle, BiSolidPlusCircle } from "react-icons/bi";
 
 function ProductDetails() {
   const {
@@ -43,11 +43,11 @@ function ProductDetails() {
 
   return (
     <section
-      className='bg-base w-screen min-h-screen text-fontM'
+      className='bg-base w-screen min-h-screen text-fontM font-popins'
     >
       <Header />
-      <div
-        className='flex-col justify-center pt-14'
+      <main
+        className='flex flex-wrap justify-center pt-16'
       >
         <CategoriesList />
         {thumbnail && (
@@ -59,9 +59,9 @@ function ProductDetails() {
           quality={100}
           />
         )}
-        <div className='px-2'>
+        <div className='px-2 flex flex-col gap-2'>
           <h3
-            className={ `${(shipping && shipping.free_shipping) && 'text-pink-200'} text-lg font-bold leading-6 pt-2`
+            className={ `${(shipping && shipping.free_shipping) && 'text-accent'} text-xl font-bold leading-6 pt-2`
           }>
             {title}
           </h3>
@@ -70,13 +70,13 @@ function ProductDetails() {
           >
             Especificações técnicas
           </h3>
-          <span>
+          <span className='font-medium'>
             {`Quantidade em estoque. ${available_quantity}`}
           </span>
           <h4
-            className='text-accentM text-3xl font-semibold'
+            className='text-accentM text-4xl font-semibold'
           >
-            {`R$${ countProductPrice[id] || price }`}
+            {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
           </h4>
           <div
             className='flex justify-center items-center align-middle gap-6 h-24'
@@ -84,8 +84,8 @@ function ProductDetails() {
             <button
               onClick={ () => removeProductToCart(id) }
             >
-              <BiChevronsLeft
-                className='text-6xl border-2 border-accentM rounded-full'
+              <BiSolidMinusCircle
+                className='text-6xl text-accentM'
               />
             </button>
             <p
@@ -96,13 +96,13 @@ function ProductDetails() {
             <button
               onClick={ () => addProductToCart(product) }
             >
-              <BiChevronsRight
-                className='text-6xl border-2 border-accentM rounded-full'
+              <BiSolidPlusCircle
+                className='text-6xl text-accentM'
               />
             </button>
           </div>
         </div>
-      </div>
+      </main>
       <FormProductAvaliation productId={ productId } />
     </section>
   );
