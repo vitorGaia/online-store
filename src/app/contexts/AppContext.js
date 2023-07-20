@@ -1,7 +1,7 @@
 'use client';
 import { getProductsFromCategoryAndQuery } from '@/services/api';
 import { getAvaliationsFromLocalStorage, removeAllProductFromLocalStorage, removeProductFromLocalStorage, setAvaliationToLocalStorage, setProductToLocalStorage } from '@/services/localStorage';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 const AppContext = createContext();
 
@@ -22,6 +22,11 @@ const AppProvider = ({ children }) => {
     rating: 0,
     message: '',
   });
+
+  useEffect(() => {
+    const locaAvaliations = getAvaliationsFromLocalStorage();
+    setAvaliations(locaAvaliations);
+  }, []);
 
   const requestProducts = async (categoryId, queryInput) => {
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
@@ -98,17 +103,12 @@ const AppProvider = ({ children }) => {
   };
 
   const values = {
-    globalState,
-    setGlobalState,
-    headerQueryInput,
-    setHeaderQueryInput,
-    activeSearch,
-    setActiveSearch,
+    globalState, setGlobalState,
+    headerQueryInput, setHeaderQueryInput,
+    activeSearch, setActiveSearch,
     requestProducts,
-    shoppingCart,
-    setShoppingCart,
-    attLocalStorage,
-    setAttLocalStorage,
+    shoppingCart, setShoppingCart,
+    attLocalStorage, setAttLocalStorage,
     addProductToCart,
     removeProductToCart,
     removeAllProductToCart,
@@ -117,9 +117,9 @@ const AppProvider = ({ children }) => {
     countTotalPrice,
     uniqueArray,
     handleFormAvaliation,
-    avaliation,
-    addAvaliation,
+    avaliation, addAvaliation,
     handleActiveSearch,
+    avaliations, setAvaliations,
   };
 
   return (

@@ -27,7 +27,7 @@ function ProductCard({ product }) {
       </p>
       <button
         onClick={() => setProductToLocalStorage(product)}
-        className='bg-accent tracking-wide font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded px-1'
+        className='bg-accent tracking-wide font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'
       >
         Adicionar ao Carrinho
       </button>

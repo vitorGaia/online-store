@@ -13,29 +13,98 @@ function FormProductAvaliation(props) {
   }, [props.productId]);
 
   const mapAvaliations = avaliationsList.map((avaliation) => (
-    <div key={ avaliation.avaliationId }>
-      <h4>{avaliation.email}</h4>
-      <span>{`Nota ${avaliation.rating}`}</span>
-      <p>{avaliation.message}</p>
+    <div
+      key={ `avaliationId-${avaliation.avaliationId}` }
+      className='px-4'
+    >
+      <div className='flex justify-between'>
+        <h4 className='font-bold text-lg'>{avaliation.email}</h4>
+        <span>{`Nota ${avaliation.rating}`}</span>
+      </div>
+      <p className='h-16 min-h-full'>{`- ${avaliation.message}`}</p>
     </div>
   ));
 
   return (
-    <div>
-      <h3>Avaliações</h3>
-      <form>
-        <div>
-          <input type='email' placeholder='Email' name='email' value={avaliation.email} onChange={ handleFormAvaliation } />
-          <div>
-            <label><input type='radio' value={1} name='rating' onChange={ handleFormAvaliation } />1</label>
-            <label><input type='radio' value={2} name='rating' onChange={ handleFormAvaliation } />2</label>
-            <label><input type='radio' value={3} name='rating' onChange={ handleFormAvaliation } />3</label>
-            <label><input type='radio' value={4} name='rating' onChange={ handleFormAvaliation } />4</label>
-            <label><input type='radio' value={5} name='rating' onChange={ handleFormAvaliation } />5</label>
+    <div className=''>
+      <h3 className='p-2 text-2xl font-semibold'>Avaliações ↓</h3>
+      <form className='p-2 flex flex-col justify-center items-center gap-2'>
+        <div className='grid grid-cols-2 gap-2 h-9'>
+          <input
+            className='bg-transparent px-2 border-2 border-accentM rounded-md'
+            type='email'
+            placeholder='Email'
+            name='email'
+            value={avaliation.email}
+            onChange={ handleFormAvaliation }
+          />
+          <div className='flex justify-center items-center gap-2'>
+            <label>
+              <input
+                className=''
+                type='radio'
+                value={1}
+                name='rating'
+                onChange={ handleFormAvaliation }
+              />
+              1
+            </label>
+            <label>
+              <input
+                className=''
+                type='radio'
+                value={2}
+                name='rating'
+                onChange={ handleFormAvaliation }
+              />
+              2
+            </label>
+            <label>
+              <input
+                className=''
+                type='radio'
+                value={3}
+                name='rating'
+                onChange={ handleFormAvaliation }
+              />
+              3
+            </label>
+            <label>
+              <input
+                className=''
+                type='radio'
+                value={4}
+                name='rating'
+                onChange={ handleFormAvaliation }
+              />
+              4
+            </label>
+            <label>
+              <input
+                className=''
+                type='radio'
+                value={5}
+                name='rating'
+                onChange={ handleFormAvaliation }
+              />
+              5
+            </label>
           </div>
         </div>
-        <textarea placeholder='Mensagem' name='message' value={avaliation.message} onChange={ handleFormAvaliation } />
-        <button type='button' onClick={ () => addAvaliation(props.productId) }>Avaliar</button>
+        <textarea
+          className='bg-transparent p-2 border-2 border-accentM rounded-md w-full h-28'
+          placeholder='Mensagem'
+          name='message'
+          value={avaliation.message}
+          onChange={ handleFormAvaliation }
+        />
+        <button
+          type='button'
+          onClick={ () => addAvaliation(props.productId) }
+          className='bg-accentM tracking-wider font-bold text-xl w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'
+        >
+          Avaliar
+        </button>
       </form>
       { avaliationsList && mapAvaliations }
     </div>

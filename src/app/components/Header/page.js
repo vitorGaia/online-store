@@ -16,13 +16,13 @@ function Header() {
   }, []);
 
   return (
-    <div className="fixed flex top-0 left-0 w-screen bg-accent p-3.5 justify-between shadow-md">
+    <div className="fixed flex top-0 left-0 w-screen bg-accent p-3.5 justify-between shadow-lg">
       <div className="flex justify-center align-middle gap-2">
         <input
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-transparent border-2 border-accentM font-normal text-lg px-2 rounded-sm`}
+          className={`${activeSearch ? '' : 'hidden'} w-52 bg-transparent border-2 border-accentM font-normal text-lg px-2 rounded-2xl`}
         />
 
         <button onClick={ () => handleActiveSearch('header') }>

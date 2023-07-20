@@ -14,8 +14,8 @@ module.exports = {
       },
       colors: {
         accent: '#E23E57',
-        accentM: '#00FFF5',
-        base: '#191A19',
+        accentM: '#4ECCA3',
+        base: '#222831',
         fontM: '#F5F5F5',
       },
     },
