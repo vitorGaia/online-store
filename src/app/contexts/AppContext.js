@@ -22,6 +22,7 @@ const AppProvider = ({ children }) => {
     rating: 0,
     message: '',
   });
+  const [loading, setLoading] = useState(false);
 
   const requestProducts = async (categoryId, queryInput) => {
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
@@ -84,16 +85,20 @@ const AppProvider = ({ children }) => {
   };
 
   const handleActiveSearch = (requestType, targetValue) => {
+    setLoading(true);
     if (activeSearch && requestType === 'header') {
       requestProducts(undefined, headerQueryInput);
       setActiveSearch(false);
+      setLoading(false);
       return;
     } else if (activeSearch && requestType === 'category') {
       requestProducts( targetValue, undefined);
       setActiveSearch(false);
+      setLoading(false);
       return;
     }
     setActiveSearch(true);
+    setLoading(false);
     return;
   };
 
@@ -115,6 +120,7 @@ const AppProvider = ({ children }) => {
     avaliation, addAvaliation,
     handleActiveSearch,
     avaliations, setAvaliations,
+    loading,
   };
 
   return (
