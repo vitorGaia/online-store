@@ -5,7 +5,7 @@ import React from 'react';
 
 function ProductCard({ product }) {
   return (
-    <div key={product.id} className='flex-col justify-center align-middle w-2/4 h-64 p-2'>
+    <div key={product.id} className='flex flex-col justify-between w-36 h-60 p-2 text-gray-300 bg-gray-700 bg-opacity-20 rounded-sm'>
       <Link href={`/pages/${product.id}`}>
         <Image
           src={product.thumbnail}
@@ -14,20 +14,20 @@ function ProductCard({ product }) {
           height={150}
           placeholder="blur"
           blurDataURL={product.thumbnail}
-          className='w-screen rounded'
+          className='w-full rounded'
         />
         <div className='h-6 mt-1 overflow-hidden'>
-          <p className={`${product.shipping.free_shipping && 'text-accentM'} text-sm font-semibold truncate`}>
+          <p className={`${product.shipping.free_shipping && 'text-green-200'} text-sm font-semibold truncate`}>
             {product.title}
           </p>
         </div>
       </Link>
       <p className='text-sm font-medium'>
-        {`Estq.${product.available_quantity} R$${product.price.toFixed(2)}`}
+        {`Valor R$${product.price.toFixed(2)}`}
       </p>
       <button
         onClick={() => setProductToLocalStorage(product)}
-        className='bg-accent tracking-wide font-bold text-sm w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1'
+        className='bg-accent tracking-wide font-bold text-sm text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1'
       >
         Adicionar ao Carrinho
       </button>

@@ -26,12 +26,12 @@ function FormProductAvaliation(props) {
   ));
 
   return (
-    <div className=''>
+    <div className='text-gray-300'>
       <h3 className='p-2 text-2xl font-semibold'>Avaliações ↓</h3>
       <form className='p-2 flex flex-col justify-center items-center gap-2'>
         <div className='grid grid-cols-2 gap-2 h-9'>
           <input
-            className='bg-transparent px-2 border-2 border-accentM rounded-md'
+            className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
             type='email'
             placeholder='Email'
             name='email'
@@ -39,9 +39,9 @@ function FormProductAvaliation(props) {
             onChange={ handleFormAvaliation }
           />
           <div className='flex justify-center items-center gap-2'>
-            <label className='flex items-center font-medium text-accentM'>
+            <label className='flex items-center font-medium text-gray-300'>
               <input
-                className='bg-transparent border-accentM'
+                className='bg-transparent border-gray-800'
                 type='radio'
                 value={1}
                 name='rating'
@@ -49,9 +49,9 @@ function FormProductAvaliation(props) {
               />
               1
             </label>
-            <label className='flex items-center font-medium text-accentM'>
+            <label className='flex items-center font-medium text-gray-300'>
               <input
-                className='bg-transparent border-accentM'
+                className='bg-transparent border-gray-800'
                 type='radio'
                 value={2}
                 name='rating'
@@ -59,9 +59,9 @@ function FormProductAvaliation(props) {
               />
               2
             </label>
-            <label className='flex items-center font-medium text-accentM'>
+            <label className='flex items-center font-medium text-gray-300'>
               <input
-                className='bg-transparent border-accentM'
+                className='bg-transparent border-gray-800'
                 type='radio'
                 value={3}
                 name='rating'
@@ -69,9 +69,9 @@ function FormProductAvaliation(props) {
               />
               3
             </label>
-            <label className='flex items-center font-medium text-accentM'>
+            <label className='flex items-center font-medium text-gray-300'>
               <input
-                className='bg-transparent border-accentM'
+                className='bg-transparent border-gray-800'
                 type='radio'
                 value={4}
                 name='rating'
@@ -79,9 +79,9 @@ function FormProductAvaliation(props) {
               />
               4
             </label>
-            <label className='flex items-center font-medium text-accentM'>
+            <label className='flex items-center font-medium text-gray-300'>
               <input
-                className='bg-transparent border-accentM'
+                className='bg-transparent border-gray-800'
                 type='radio'
                 value={5}
                 name='rating'
@@ -92,7 +92,7 @@ function FormProductAvaliation(props) {
           </div>
         </div>
         <textarea
-          className='bg-transparent p-2 border-2 border-accentM rounded-md w-full h-28'
+          className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 placeholder:text-gray-700 rounded-sm w-full h-28'
           placeholder='Mensagem'
           name='message'
           value={avaliation.message}
@@ -101,7 +101,7 @@ function FormProductAvaliation(props) {
         <button
           type='button'
           onClick={ () => addAvaliation(props.productId) }
-          className='bg-accentM tracking-wider font-bold text-xl w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'
+          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'
         >
           Avaliar
         </button>

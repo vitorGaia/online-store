@@ -1,35 +1,75 @@
 import React from 'react';
 
-function FormCheckout(props) {
+function FormCheckout() {
   return (
-    <form>
-      <div>
-        <input type='text' placeholder='Nome' />
-        <input type='text' placeholder='CPF' />
+    <form className='flex flex-col items-center justify-center gap-3 px-2 py-4'>
+      <div className='flex w-full gap-3'>
+        <input
+          type='text'
+          placeholder='Nome'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+        />
+        <input
+          type='text'
+          placeholder='CPF'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+        />
       </div>
-      <div>
-        <input type='email' placeholder='Email' />
-        <input type='text' placeholder='Telefone' />
+      <div className='flex w-full gap-3'>
+        <input
+          type='email'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Email'
+        />
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Telefone'
+        />
       </div>
-      <div>
-        <input type='text' placeholder='Cep' />
-        <input type='text' placeholder='Endereço' />
+      <div className='flex w-full gap-3'>
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Cep'
+        />
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Endereço'
+        />
       </div>
-      <div>
-        <input type='text' placeholder='Complemento' />
-        <input type='text' placeholder='Número' />
+      <div className='flex w-full gap-3'>
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Complemento'
+        />
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Número'
+        />
       </div>
-      <div>
-        <input type='text' placeholder='Cidade' />
-        <input type='text' placeholder='Estado' />
+      <div className='flex w-full gap-3'>
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Cidade'
+        />
+        <input
+          type='text'
+          className='w-2/4 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+          placeholder='Estado'
+        />
       </div>
-      <div>
+      <div className='flex gap-2'>
         <label><input type='radio' />Boleto</label>
         <label><input type='radio' />Visa</label>
         <label><input type='radio' />MasterCard</label>
         <label><input type='radio' />Elo</label>
       </div>
-      <button type='submit'>Comprar</button>
+      <button type='submit' className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'>Comprar</button>
     </form>
   );
 }

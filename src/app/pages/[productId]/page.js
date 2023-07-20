@@ -47,7 +47,7 @@ function ProductDetails() {
     >
       <Header />
       <main
-        className='flex flex-wrap justify-center pt-14'
+        className='flex flex-wrap justify-center pt-16'
       >
         <CategoriesList />
         {thumbnail && (
@@ -61,7 +61,7 @@ function ProductDetails() {
         )}
         <div className='px-2 flex flex-col gap-2'>
           <h3
-            className={ `${(shipping && shipping.free_shipping) && 'text-accentM'} text-xl font-bold leading-6 pt-2`
+            className={ `${(shipping && shipping.free_shipping) && 'text-green-200'} text-xl font-bold leading-6 pt-2`
           }>
             {title}
           </h3>
@@ -70,11 +70,11 @@ function ProductDetails() {
           >
             Especificações técnicas
           </h3>
-          <span className='font-medium'>
+          <span className='font-medium text-gray-300'>
             {`Quantidade em estoque. ${available_quantity}`}
           </span>
           <h4
-            className='text-accentM text-4xl font-semibold'
+            className='text-accent text-4xl font-semibold'
           >
             {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
           </h4>
@@ -85,11 +85,11 @@ function ProductDetails() {
               onClick={ () => removeProductToCart(id) }
             >
               <BiSolidMinusCircle
-                className='text-6xl'
+                className='text-6xl text-gray-300'
               />
             </button>
             <p
-              className='text-7xl'
+              className='text-7xl text-gray-300'
             >
               { countProduct[id] || 0 }
             </p>
@@ -97,7 +97,7 @@ function ProductDetails() {
               onClick={ () => addProductToCart(product) }
             >
               <BiSolidPlusCircle
-                className='text-6xl'
+                className='text-6xl text-gray-300'
               />
             </button>
           </div>

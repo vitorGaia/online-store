@@ -17,32 +17,34 @@ function Header() {
 
   return (
     <div
-      className="fixed flex top-0 left-0 w-full bg-accent h-14 p-2 px-5 items-center justify-between shadow-sm rounded-md"
+      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-5 items-center justify-between shadow-sm rounded-sm z-10"
     >
-      <div className="flex justify-center align-middle gap-2">
+      <div className="flex justify-center align-middle gap-3">
         <input
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-transparent border-2 border-accentM font-normal text-lg px-2 rounded-2xl h-9`}
+          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm`}
         />
 
         <button onClick={ () => handleActiveSearch('header') }>
-          <BiSearchAlt className="text-3xl font-black text-accentM" />
+          <BiSearchAlt className="text-3xl text-gray-300" />
         </button>
       </div>
 
-      <Image
-        src={ logo }
-        alt='Front end online store logo'
-        width='auto'
-        height='auto'
-        className={`${activeSearch ? 'hidden' : ''} w-28`}
-      />
+      <Link href='/'>
+        <Image
+          src={ logo }
+          alt='Front end online store logo'
+          width='auto'
+          height='auto'
+          className={`${activeSearch ? 'hidden' : ''} w-28`}
+        />
+      </Link>
 
       <Link href='/pages/ShoppingCart' className="flex justify-center align-middle">
-        <BiCart className="text-3xl font-bold text-accentM" />
-        <span className="text-accentM font-medium text-xs">{countProducts}</span>
+        <BiCart className="text-3xl text-gray-300" />
+        <span className="font-semibold text-xs text-accent">{countProducts}</span>
       </Link>
     </div>
   );

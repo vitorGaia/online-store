@@ -30,10 +30,10 @@ export default function ShoppingCart() {
 
   const renderProducts = uniqueArray.map((product) => (
     <div
-      className="flex py-2 gap-1"
+      className="flex p-2 gap-1 bg-gray-700 bg-opacity-20 z-0 relative rounded-sm"
       key={`shoppingCart${product.id}`}
     >
-      <button onClick={ () => removeAllProductToCart(product.id)}>
+      <button onClick={ () => removeAllProductToCart(product.id)} className="absolute top-3 left-3 text-red-400">
         <BiXCircle />
       </button>
       <Image
@@ -64,18 +64,18 @@ export default function ShoppingCart() {
   ));
 
   return (
-    <section className="bg-base w-screen min-h-screen text-fontM">
+    <section className="bg-base w-screen min-h-screen text-gray-300">
       <Header />
-      <main className="flex flex-wrap justify-center pt-16 gap-1 p-2">
-        <h2 className="text-2xl font-semibold text-accentM">Carrinho de Compras</h2>
+      <main className="flex flex-wrap justify-center pt-16 gap-3 p-2">
+        <h2 className="text-2xl font-medium">Carrinho de Compras</h2>
         {shoppingCart.length === 0 && (<h3>Seu carrinho está vazio</h3>)}
         {shoppingCart.length !== 0 && renderProducts}
-        <h2 className="p-2 m-2 text-accent text-center font-semibold text-2xl">
+        <h2 className="p-2 m-2 text-center font-semibold text-2xl">
           { `Valor total. R$${countTotalPrice.toFixed(2)}` }
         </h2>
         <Link
           href='/pages/Checkout'
-          className="bg-accent text-fontM text-center font-semibold text-lg p-2 rounded-md shadow-sm w-full"
+          className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-sm w-full"
         >
           Finalizar Compra
         </Link>
