@@ -16,13 +16,13 @@ function FormProductAvaliation(props) {
   const mapAvaliations = avaliationsList.map((avaliation) => (
     <div
       key={ `avaliationId-${avaliation.avaliationId}` }
-      className='px-4'
+      className='p-4 border-t-2 border-gray-800'
     >
       <div className='flex justify-between'>
         <h4 className='font-bold text-lg'>{avaliation.email}</h4>
         <span>{`Nota ${avaliation.rating}`}</span>
       </div>
-      <p className='h-16 min-h-full'>{`- ${avaliation.message}`}</p>
+      <p className=''>{`- ${avaliation.message}`}</p>
     </div>
   ));
 
@@ -53,7 +53,7 @@ function FormProductAvaliation(props) {
         <button
           type='button'
           onClick={ () => addAvaliation(props.productId) }
-          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1'
+          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1 mb-2'
         >
           Avaliar
         </button>

@@ -35,7 +35,7 @@ function CategoriesList() {
   ));
 
   return (
-    <div className={`${activeSearch ? 'flex flex-col' : 'hidden'} divide-y-2 divide-gray-800 w-5/6`}>
+    <div className={`${activeSearch ? 'flex flex-col' : 'hidden'} w-5/6 pb-4`}>
       {mapCategories}
     </div>
   );

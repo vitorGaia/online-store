@@ -87,6 +87,11 @@ const AppProvider = ({ children }) => {
   const handleActiveSearch = (requestType, targetValue) => {
     setLoading(true);
     if (activeSearch && requestType === 'header') {
+      if (headerQueryInput === '') {
+        setActiveSearch(false);
+        setLoading(false);
+        return;
+      }
       requestProducts(undefined, headerQueryInput);
       setActiveSearch(false);
       setLoading(false);

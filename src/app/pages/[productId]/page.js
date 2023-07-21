@@ -48,7 +48,7 @@ function ProductDetails() {
     >
       <Header />
       <main
-        className='flex flex-wrap justify-center pt-16'
+        className='flex flex-wrap justify-center pt-16 pb-2'
       >
         <CategoriesList />
         {thumbnail && (
@@ -81,7 +81,7 @@ function ProductDetails() {
               {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
             </h4>
             <Link href='/pages/ShoppingCart'>
-              <BiCartAlt className='text-4xl font-semibold mr-4' />
+              <BiCartAlt className='text-4xl font-semibold mr-7' />
             </Link>
           </div>
           <div

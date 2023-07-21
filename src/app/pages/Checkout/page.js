@@ -50,7 +50,7 @@ function Checkout(props) {
   return (
     <section className='bg-base flex flex-col w-screen text-gray-300 min-h-screen'>
       <Header />
-      <div className='flex flex-wrap justify-center pt-16 p-2 min-h-full gap-3'>
+      <div className='flex flex-col justify-center pt-16 p-2 gap-3'>
         <h3 className="text-2xl py-2 font-medium">Revise seus produtos</h3>
         { renderProducts }
         <h2 className="text-xl py-4 font-semibold">Informações do comprador</h2>

@@ -7,7 +7,7 @@ import { AppContext } from '@/app/contexts/AppContext';
 
 const StyledRating = styled(Rating)({
   '& .MuiRating-iconFilled': {
-    color: '#ff6d75',
+    color: '#F24C3D',
   },
   '& .MuiRating-iconHover': {
     color: '#ff3d47',
@@ -21,11 +21,11 @@ export default function CustomizedRating() {
     <StyledRating
       name="rating"
       onChange={ handleFormAvaliation }
-      defaultValue={1}
+      defaultValue={2}
       getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
       precision={0.5}
       icon={<FavoriteIcon fontSize="inherit" />}
-      emptyIcon={<FavoriteBorderIcon style={{color: 'gray'}} fontSize="inherit" />}
+      emptyIcon={<FavoriteBorderIcon style={{color: '#424242'}} fontSize="inherit" />}
     />
   );
 }

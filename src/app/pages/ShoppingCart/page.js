@@ -44,7 +44,9 @@ export default function ShoppingCart() {
         className="rounded-sm w-24 h-24"
       />
       <div>
-        <h3 className="font-medium text-sm">{product.title}</h3>
+        <Link href={`/pages/${product.id}`} className="">
+          <h3 className="font-medium text-sm">{product.title}</h3>
+        </Link>
         <h4
           className="font-semibold"
         >

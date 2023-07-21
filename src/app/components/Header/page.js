@@ -17,17 +17,21 @@ function Header() {
 
   return (
     <div
-      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-5 items-center justify-between shadow-sm rounded-sm z-10"
+      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm rounded-sm z-10"
     >
-      <div className="flex justify-center align-middle gap-3">
+      <div
+        className="flex justify-center align-middle gap-3"
+      >
         <input
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm`}
+          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full`}
         />
 
-        <button onClick={ () => handleActiveSearch('header') }>
+        <button
+          onClick={ () => handleActiveSearch('header') }
+        >
           <BiSearchAlt className="text-3xl text-gray-300" />
         </button>
       </div>
