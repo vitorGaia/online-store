@@ -15,12 +15,12 @@ export default function Home() {
 
   return (
     <section
-      className="bg-base flex flex-col w-screen min-h-screen text-gray-300"
+      className="bg-base flex flex-col min-w-screen min-h-screen text-gray-300"
     >
       <Header />
 
       <main
-        className="flex flex-wrap justify-center pt-16 pb-2 px-2 gap-4"
+        className="flex flex-col justify-center items-center pt-16 pb-2 px-2 lg:pt-20 lg:pl-80"
       >
         {loading && (<Loading/>)}
 

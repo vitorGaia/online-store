@@ -17,20 +17,21 @@ function Header() {
 
   return (
     <div
-      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm rounded-sm z-10"
+      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm z-10 lg:bg-blue-700 lg:h-20 lg:px-7"
     >
       <div
-        className="flex justify-center align-middle gap-3"
+        className="flex justify-center itens-center gap-3 relative"
       >
         <input
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full`}
+          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full lg:block lg:w-60 lg:rounded-none lg:placeholder:text-gray-400`}
         />
 
         <button
           onClick={ () => handleActiveSearch('header') }
+          className={`${activeSearch ? 'absolute' : ''} lg:absolute right-1 top-1`}
         >
           <BiSearchAlt className="text-3xl text-gray-300" />
         </button>
@@ -42,13 +43,16 @@ function Header() {
           alt='Front end online store logo'
           width='auto'
           height='auto'
-          className={`${activeSearch ? 'hidden' : ''} w-28`}
+          className={`${activeSearch ? 'hidden' : ''} w-28 lg:w-48 lg:mr-36`}
         />
       </Link>
 
-      <Link href='/pages/ShoppingCart' className="flex justify-center align-middle">
-        <BiCartAlt className="text-3xl text-gray-300" />
-        <span className="font-semibold text-xs text-accent">{countProducts}</span>
+      <Link
+        href='/pages/ShoppingCart'
+        className="flex justify-center itens-center lg:pr-4"
+      >
+        <BiCartAlt className="text-3xl text-gray-300 lg:text-4xl" />
+        <span className="font-semibold text-xs text-accent lg:font-bold lg:text-sm">{countProducts}</span>
       </Link>
     </div>
   );
