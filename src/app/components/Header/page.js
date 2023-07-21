@@ -26,12 +26,12 @@ function Header() {
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full lg:block lg:w-60 lg:rounded-none lg:placeholder:text-gray-400`}
+          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full lg:w-60 lg:rounded-none lg:placeholder:text-gray-400 lg:flex`}
         />
 
         <button
           onClick={ () => handleActiveSearch('header') }
-          className={`${activeSearch ? 'absolute' : ''} lg:absolute right-1 top-1`}
+          className={`${activeSearch ? 'absolute' : 'flex'} right-1 top-1 lg:absolute`}
         >
           <BiSearchAlt className="text-3xl text-gray-300" />
         </button>
@@ -43,7 +43,7 @@ function Header() {
           alt='Front end online store logo'
           width='auto'
           height='auto'
-          className={`${activeSearch ? 'hidden' : ''} w-28 lg:w-48 lg:mr-36`}
+          className={`${activeSearch ? 'hidden' : ''} w-28 lg:w-48 lg:mr-36 lg:block`}
         />
       </Link>
 

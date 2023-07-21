@@ -6,25 +6,25 @@ import React, { useContext } from 'react';
 function ProductCard({ product }) {
   const { addProductToCart } = useContext(AppContext);
   return (
-    <div key={product.id} className='flex flex-col justify-between w-36 h-60 p-2 text-gray-300 bg-gray-700 bg-opacity-20 rounded-sm'>
+    <div key={product.id} className='flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-gray-300 bg-gray-700 bg-opacity-20 rounded-md'>
       <Link href={`/pages/${product.id}`}>
         <Image
           src={product.thumbnail}
           alt={product.title}
-          width={150}
-          height={150}
+          width={500}
+          height={500}
           placeholder="blur"
           blurDataURL={product.thumbnail}
-          className='w-full rounded'
+          className='w-11/12 pl-5 rounded-md'
         />
         <div className='h-6 mt-1 overflow-hidden'>
-          <p className={`${product.shipping.free_shipping && 'text-green-200'} text-sm font-semibold truncate`}>
+          <p className={`${product.shipping.free_shipping && 'text-green-200'} text-sm font-medium truncate px-6`}>
             {product.title}
           </p>
         </div>
       </Link>
-      <p className='text-sm font-medium'>
-        {`Valor R$${product.price.toFixed(2)}`}
+      <p className='text-lg font-semibold text-center'>
+        {`R$ ${product.price.toFixed(2)}`}
       </p>
       <button
         onClick={() => addProductToCart(product)}

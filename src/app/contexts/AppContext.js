@@ -96,9 +96,20 @@ const AppProvider = ({ children }) => {
       setActiveSearch(false);
       setLoading(false);
       return;
-    } else if (activeSearch && requestType === 'category') {
+    }
+    else if (activeSearch && requestType === 'category') {
       requestProducts( targetValue, undefined);
       setActiveSearch(false);
+      setLoading(false);
+      return;
+    }
+    else if (!activeSearch && requestType === 'category') {
+      requestProducts( targetValue, undefined);
+      setLoading(false);
+      return;
+    }
+    else if (!activeSearch && requestType === 'header' && window.innerWidth > 1000) {
+      requestProducts(undefined, headerQueryInput);
       setLoading(false);
       return;
     }
