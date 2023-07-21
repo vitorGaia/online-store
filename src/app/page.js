@@ -14,13 +14,17 @@ export default function Home() {
   const mapHomeProducts = homeProducts && homeProducts.map((product) => ProductCard({ product }));
 
   return (
-    <section className="bg-base flex flex-col w-screen min-h-screen text-gray-300">
+    <section
+      className="bg-base flex flex-col w-screen min-h-screen text-gray-300"
+    >
       <Header />
 
-      <main className="flex flex-wrap justify-center pt-16 pb-2 px-2 gap-4">
-        <CategoriesList />
-
+      <main
+        className="flex flex-wrap justify-center pt-16 pb-2 px-2 gap-4"
+      >
         {loading && (<Loading/>)}
+
+        <CategoriesList />
 
         {(!homeProducts && !loading) && (<h3 className="text-center py-60 text-2xl font-medium text-gray-300">Digite algum termo de pesquisa ou escolha uma categoria :)</h3>)}
 

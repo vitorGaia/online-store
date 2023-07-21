@@ -7,13 +7,13 @@ import Image from "next/image";
 import logo from "../../../../public/logo-frontend-online-store.svg";
 
 function Header() {
-  const { setHeaderQueryInput, activeSearch, handleActiveSearch, shoppingCart } = useContext(AppContext);
+  const { attLocalStorage, setHeaderQueryInput, activeSearch, handleActiveSearch, shoppingCart } = useContext(AppContext);
   const [countProducts, setCountProducts] = useState(0);
 
   useEffect(() => {
     const products = getProductsFromLocalStorage();
     setCountProducts(products.length);
-  }, [shoppingCart]);
+  }, [shoppingCart, attLocalStorage]);
 
   return (
     <div

@@ -1,9 +1,10 @@
-import { setProductToLocalStorage } from '@/services/localStorage';
+import { AppContext } from '@/app/contexts/AppContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 
 function ProductCard({ product }) {
+  const { addProductToCart } = useContext(AppContext);
   return (
     <div key={product.id} className='flex flex-col justify-between w-36 h-60 p-2 text-gray-300 bg-gray-700 bg-opacity-20 rounded-sm'>
       <Link href={`/pages/${product.id}`}>
@@ -26,7 +27,7 @@ function ProductCard({ product }) {
         {`Valor R$${product.price.toFixed(2)}`}
       </p>
       <button
-        onClick={() => setProductToLocalStorage(product)}
+        onClick={() => addProductToCart(product)}
         className='bg-accent tracking-wide font-bold text-sm text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1'
       >
         Adicionar ao Carrinho

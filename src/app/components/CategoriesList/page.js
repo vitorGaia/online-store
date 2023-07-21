@@ -19,7 +19,7 @@ function CategoriesList() {
   const mapCategories = categories.map((category) => (
     <label
       key={category.id}
-      className="flex justify-center"
+      className="flex justify-center lg:justify-start lg:pl-8"
       htmlFor="category"
     >
       <button
@@ -35,7 +35,14 @@ function CategoriesList() {
   ));
 
   return (
-    <div className={`${activeSearch ? 'flex flex-col' : 'hidden'} w-5/6 pb-4`}>
+    <div
+      className={`${activeSearch ? 'flex flex-col' : 'hidden'} w-5/6 pb-4  lg:flex lg:flex-col lg:fixed lg:top-16 lg:left-0 lg:w-80 lg:bg-gray-700 lg:bg-opacity-20 lg:shadow-md lg:shadow-gray-700`}
+    >
+      <p
+        className="sm:hidden lg:flex lg:mx-8 lg:items-center lg:text-center lg:text-xl lg:font-bold lg:tracking-wider lg:text-gray-400 lg:mb-2 lg:py-7 lg:border-b-2 lg:border-gray-400"
+      >
+        Categorias
+      </p>
       {mapCategories}
     </div>
   );
