@@ -30,7 +30,7 @@ export default function ShoppingCart() {
 
   const renderProducts = uniqueArray.map((product) => (
     <div
-      className="flex p-2 gap-1 bg-gray-700 bg-opacity-20 z-0 relative rounded-sm"
+      className="flex p-2 gap-1 bg-baseM z-0 relative rounded-md lg:w-5/6 lg:bg-slate-100 lg:shadow-sm"
       key={`shoppingCart${product.id}`}
     >
       <button onClick={ () => removeAllProductToCart(product.id)} className="absolute top-3 left-3 text-red-400">
@@ -41,12 +41,15 @@ export default function ShoppingCart() {
         alt={ product.title }
         width={150}
         height={150}
-        className="rounded-sm w-24 h-24"
+        className="rounded-md w-24 h-24"
       />
       <div>
         <Link href={`/pages/${product.id}`} className="">
           <h3 className="font-medium text-sm">{product.title}</h3>
         </Link>
+        <span className='font-normal text-xs'>
+          {`Quantidade em estoque. ${product.available_quantity}`}
+        </span>
         <h4
           className="font-semibold"
         >
@@ -66,21 +69,27 @@ export default function ShoppingCart() {
   ));
 
   return (
-    <section className="bg-base w-screen min-h-screen text-gray-300">
+    <section className="bg-base overflow-x-hidden max-w-screen max-h-screen text-font">
       <Header />
-      <main className="flex flex-wrap justify-center pt-16 gap-3 p-2">
-        <h2 className="text-2xl font-medium">Carrinho de Compras</h2>
-        {shoppingCart.length === 0 && (<h3>Seu carrinho está vazio</h3>)}
-        {shoppingCart.length !== 0 && renderProducts}
-        <h2 className="p-2 m-2 text-center font-semibold text-2xl">
-          { `Valor total. R$${countTotalPrice.toFixed(2)}` }
-        </h2>
-        <Link
-          href='/pages/Checkout'
-          className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-sm w-full"
-        >
-          Finalizar Compra
-        </Link>
+      <main
+        className="flex flex-col justify-center pt-20 pb-6 gap-10 p-2 lg:max-h-screen lg:px-36 lg:pt-28 lg:pb-16 lg:flex-row"
+      >
+        <div className="flex flex-col gap-4 items-center lg:bg-baseM lg:overflow-auto lg:max-h-full lg:w-2/4 lg:py-8 lg:rounded-md lg:shadow-md">
+          <h2 className="text-2xl pb-2 font-semibold">Carrinho de Compras</h2>
+          {shoppingCart.length === 0 && (<h3>Seu carrinho está vazio</h3>)}
+          {shoppingCart.length !== 0 && renderProducts}
+        </div>
+        <div className="flex flex-col lg:w-2/4 lg:items-center lg:justify-center lg:gap-6">
+          <h2 className="p-2 m-2 text-center font-semibold text-2xl">
+            { `Valor total. R$${countTotalPrice.toFixed(2)}` }
+          </h2>
+          <Link
+            href='/pages/Checkout'
+            className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-md w-full lg:w-80"
+          >
+            Finalizar Compra
+          </Link>
+        </div>
       </main>
     </section>
   );

@@ -69,7 +69,7 @@ function ProductDetails() {
         <div className='px-2 flex flex-col gap-2 lg:justify-between lg:h-full lg:w-2/5'>
           <div className='lg:flex lg:flex-col lg:gap-2'>
             <h3
-              className='hidden text-3xl tracking-wide font-bold lg:block lg:text-4xl'
+              className='hidden text-3xl tracking-wide font-bold lg:block lg:text-3xl'
             >
               Especificações técnicas
             </h3>
@@ -82,7 +82,7 @@ function ProductDetails() {
               {`Quantidade em estoque. ${available_quantity}`}
             </span>
           </div>
-          <div className='flex items-center justify-between lg:pb-10'>
+          <div className='flex items-center justify-between lg:pb-11'>
             <h4
               className='text-accent text-4xl font-semibold'
             >
@@ -93,7 +93,7 @@ function ProductDetails() {
             </Link>
           </div>
           <div
-            className='flex justify-center items-center align-middle gap-6 h-24 lg:absolute lg:bottom-16 lg:right-80'
+            className='flex justify-center items-center align-middle gap-6 h-24 lg:absolute lg:bottom-20 lg:right-80'
           >
             <button
               onClick={ () => removeProductToCart(id) }

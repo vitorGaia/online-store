@@ -36,7 +36,7 @@ function FormProductAvaliation(props) {
         Avaliações
       </h3>
       <form
-        className='p-2 flex flex-col justify-center items-center gap-2 lg:bg-baseM lg:px-72 lg:py-14'
+        className='p-2 flex flex-col justify-center items-center gap-2 lg:bg-baseM lg:px-72 lg:py-14 lg:rounded-md shadow-md'
       >
         <div className='flex gap-4 h-9 justify-center items-center lg:justify-between lg:gap-16'>
           <input
