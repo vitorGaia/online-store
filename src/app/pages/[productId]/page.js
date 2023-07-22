@@ -44,39 +44,46 @@ function ProductDetails() {
 
   return (
     <section
-      className='bg-base w-screen min-h-screen text-fontM'
+      className='bg-base w-screen min-h-screen text-font'
     >
       <Header />
       <main
-        className='flex flex-wrap justify-center pt-16 pb-2 lg:pt-36 lg:pb-16 lg:gap-0 lg:px-40 lg:h-screen lg:w-screen lg:flex-col lg:bg-blue-300'
+        className='flex flex-col justify-center pt-14 pb-2 lg:pt-28 lg:pb-16 lg:gap-20 lg:px-24 lg:h-screen lg:w-screen lg:flex-row'
       >
         {window.innerWidth < 600 && <CategoriesList />}
-        {thumbnail && (
-          <Image
-          src={ thumbnail }
-          alt={ title }
-          width={500}
-          height={100}
-          quality={100}
-          />
-        )}
-        <div className='px-2 flex flex-col gap-2 lg:justify-between lg:bg-red-300 lg:h-full lg:w-2/5'>
-          <div className='lg:flex lg:flex-col lg:gap-9 lg:bg-yellow-300'>
+        <div className='lg:w-2/5 lg:h-full lg:flex lg:justify-center lg:items-center lg:rounded-md lg:bg-baseM lg:shadow-md relative overflow-auto'>
+          {thumbnail && (
+            <Image
+            src={ thumbnail }
+            alt={ title }
+            width={500}
+            height={100}
+            quality={100}
+            />
+          )}
+          {(shipping && shipping.free_shipping) && (
+            <div className='diagonal-div-reverse bg-blue-500 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-md'>
+              <p className='text-sm font-medium text-baseM'>Frete Grátis</p>
+            </div>
+          )}
+        </div>
+        <div className='px-2 flex flex-col gap-2 lg:justify-between lg:h-full lg:w-2/5'>
+          <div className='lg:flex lg:flex-col lg:gap-2'>
             <h3
               className='hidden text-3xl tracking-wide font-bold lg:block'
             >
               Especificações técnicas
             </h3>
             <h3
-              className={ `${(shipping && shipping.free_shipping) && 'text-green-200'} text-xl font-bold leading-6 pt-2 lg:text-3xl`
-            }>
+              className="text-xl font-bold leading-6 pt-2 lg:text-3xl"
+            >
               {title}
             </h3>
-            <span className='font-medium text-gray-300'>
+            <span className='font-medium text-lg'>
               {`Quantidade em estoque. ${available_quantity}`}
             </span>
           </div>
-          <div className='flex items-center justify-between lg:bg-green-300'>
+          <div className='flex items-center justify-between lg:pb-10'>
             <h4
               className='text-accent text-4xl font-semibold'
             >
@@ -87,17 +94,17 @@ function ProductDetails() {
             </Link>
           </div>
           <div
-            className='flex justify-center items-center align-middle gap-6 h-24'
+            className='flex justify-center items-center align-middle gap-6 h-24 lg:absolute lg:bottom-16 lg:right-80'
           >
             <button
               onClick={ () => removeProductToCart(id) }
             >
               <BiMinus
-                className='text-6xl text-gray-300 lg:text-4xl'
+                className='text-6xl lg:text-4xl'
               />
             </button>
             <p
-              className='text-7xl text-gray-300 lg:text-3xl lg:bg-gray-700 lg:rounded-full lg:w-9 lg:flex lg:justify-center'
+              className='text-7xl lg:bg-gray-500 lg:bg-opacity-20 lg:text-3xl lg:rounded-full lg:w-9 lg:flex lg:justify-center'
             >
               { countProduct[id] || 0 }
             </p>
@@ -105,7 +112,7 @@ function ProductDetails() {
               onClick={ () => addProductToCart(product) }
             >
               <BiPlus
-                className='text-6xl text-gray-300 lg:text-4xl'
+                className='text-6xl lg:text-4xl'
               />
             </button>
           </div>
