@@ -19,6 +19,10 @@
   border-radius: 25px;
 }
 
+.diagonal-div {
+  transform: rotate(45deg);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

@@ -6,7 +6,12 @@ import React, { useContext } from 'react';
 function ProductCard({ product }) {
   const { addProductToCart } = useContext(AppContext);
   return (
-    <div key={product.id} className='flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-gray-300 bg-gray-700 bg-opacity-20 rounded-md'>
+    <div key={product.id} className='flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto'>
+      {product.shipping.free_shipping && (
+        <div className='diagonal-div bg-blue-500 absolute top-5 -right-10 h-7 w-36 flex justify-center items-center shadow-md'>
+          <p className='text-sm font-medium text-baseM'>Frete Grátis</p>
+        </div>
+      )}
       <Link href={`/pages/${product.id}`}>
         <Image
           src={product.thumbnail}
@@ -18,7 +23,7 @@ function ProductCard({ product }) {
           className='w-11/12 pl-5 rounded-md'
         />
         <div className='h-6 mt-1 overflow-hidden'>
-          <p className={`${product.shipping.free_shipping && 'text-green-200'} text-sm font-medium truncate px-6`}>
+          <p className='font-medium truncate px-6 text-lg'>
             {product.title}
           </p>
         </div>
@@ -28,7 +33,7 @@ function ProductCard({ product }) {
       </p>
       <button
         onClick={() => addProductToCart(product)}
-        className='bg-accent tracking-wide font-bold text-sm text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1'
+        className='bg-accent tracking-wide font-bold text-lg w-full h-12 mt-1 py-0.5 leading-4 rounded shadow-md px-1 text-baseM'
       >
         Adicionar ao Carrinho
       </button>

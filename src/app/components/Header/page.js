@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <div
-      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm z-10 lg:bg-blue-700 lg:h-20 lg:px-7"
+      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm z-10 lg:backdrop-blur-3xl lg:h-16 lg:px-10"
     >
       <div
         className="flex justify-center itens-center gap-3 relative"
@@ -26,14 +26,14 @@ function Header() {
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? '' : 'hidden'} w-52 bg-gray-800 bg-opacity-20 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full lg:w-60 lg:rounded-none lg:placeholder:text-gray-400 lg:flex`}
+          className={`${activeSearch ? 'block' : 'hidden'} w-52 bg-gray-500 bg-opacity-10 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full lg:w-60 lg:placeholder:text-gray-500 lg:px-4`}
         />
 
         <button
           onClick={ () => handleActiveSearch('header') }
-          className={`${activeSearch ? 'absolute' : 'flex'} right-1 top-1 lg:absolute`}
+          className={`${activeSearch ? 'absolute' : 'block'} right-2 top-1`}
         >
-          <BiSearchAlt className="text-3xl text-gray-300" />
+          <BiSearchAlt className="text-3xl" />
         </button>
       </div>
 
@@ -43,15 +43,15 @@ function Header() {
           alt='Front end online store logo'
           width='auto'
           height='auto'
-          className={`${activeSearch ? 'hidden' : ''} w-28 lg:w-48 lg:mr-36 lg:block`}
+          className={`${activeSearch ? 'hidden' : ''} w-28 lg:w-32 lg:block`}
         />
       </Link>
 
       <Link
         href='/pages/ShoppingCart'
-        className="flex justify-center itens-center lg:pr-4"
+        className="flex justify-center itens-center"
       >
-        <BiCartAlt className="text-3xl text-gray-300 lg:text-4xl" />
+        <BiCartAlt className="text-3xl" />
         <span className="font-semibold text-xs text-accent lg:font-bold lg:text-sm">{countProducts}</span>
       </Link>
     </div>

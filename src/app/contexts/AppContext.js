@@ -88,7 +88,7 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     if (activeSearch && requestType === 'header') {
       if (headerQueryInput === '') {
-        setActiveSearch(false);
+        setActiveSearch(!activeSearch);
         setLoading(false);
         return;
       }
@@ -108,12 +108,7 @@ const AppProvider = ({ children }) => {
       setLoading(false);
       return;
     }
-    else if (!activeSearch && requestType === 'header' && window.innerWidth > 1000) {
-      requestProducts(undefined, headerQueryInput);
-      setLoading(false);
-      return;
-    }
-    setActiveSearch(true);
+    setActiveSearch(!activeSearch);
     setLoading(false);
     return;
   };

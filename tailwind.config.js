@@ -14,8 +14,10 @@ module.exports = {
       },
       colors: {
         accent: '#31C28D',
-        base: '#151515',
-        fontM: '#F5EEDC',
+        base: '#F5F5F5',
+        baseM: '#FFF',
+        font: '#2B2730',
+        fontM: '#8B7E74'
       },
       fontFamily: {
         'poppins': ['poppins', 'poppins'],

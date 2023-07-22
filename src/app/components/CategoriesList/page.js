@@ -27,7 +27,7 @@ function CategoriesList() {
         type="button"
         value={category.id}
         onClick={ (e) => handleActiveSearch('category', e.target.value) }
-        className="text-lg font-normal tracking-wide text-gray-400 h-9 rounded-sm"
+        className="text-lg font-normal tracking-wide h-9 rounded-sm"
       >
       {category.name}
       </button>
@@ -36,10 +36,10 @@ function CategoriesList() {
 
   return (
     <div
-      className={`${activeSearch ? 'flex flex-col' : 'hidden'} w-5/6 pb-4  lg:flex lg:flex-col lg:fixed lg:top-20 lg:left-0 lg:w-80 lg:bg-gray-800 lg:bg-opacity-20 lg:overflow-y-auto lg:h-full`}
+      className={`${activeSearch ? 'flex flex-col lg:flex lg:flex-col lg:fixed lg:top-16 lg:left-0' : 'hidden lg:hidden'} w-5/6 pb-4 lg:w-80 lg:bg-baseM lg:overflow-y-auto lg:h-full lg:text-font lg:shadow-md lg:pb-20`}
     >
       <p
-        className="hidden lg:flex lg:mx-8 lg:items-center lg:text-center lg:text-xl lg:font-bold lg:tracking-wider lg:text-gray-300 lg:mb-2 lg:py-7 lg:border-b-2 lg:border-gray-400"
+        className="hidden lg:flex lg:mx-8 lg:items-center lg:text-center lg:text-xl lg:font-bold lg:tracking-wider lg:mb-2 lg:py-7 lg:border-b-2 lg:border-font"
       >
         Categorias
       </p>

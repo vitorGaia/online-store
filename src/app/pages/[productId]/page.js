@@ -8,7 +8,7 @@ import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../../contexts/AppContext';
 import FormProductAvaliation from '../../components/FormProductAvaliation/page';
 import CategoriesList from '@/app/components/CategoriesList/page';
-import { BiCartAlt, BiSolidMinusCircle, BiSolidPlusCircle } from "react-icons/bi";
+import { BiCartAlt, BiMinus, BiPlus } from "react-icons/bi";
 import Link from 'next/link';
 
 function ProductDetails() {
@@ -48,9 +48,9 @@ function ProductDetails() {
     >
       <Header />
       <main
-        className='flex flex-wrap justify-center pt-16 pb-2'
+        className='flex flex-wrap justify-center pt-16 pb-2 lg:pt-36 lg:pb-16 lg:gap-0 lg:px-40 lg:h-screen lg:w-screen lg:flex-col lg:bg-blue-300'
       >
-        <CategoriesList />
+        {window.innerWidth < 600 && <CategoriesList />}
         {thumbnail && (
           <Image
           src={ thumbnail }
@@ -60,21 +60,23 @@ function ProductDetails() {
           quality={100}
           />
         )}
-        <div className='px-2 flex flex-col gap-2'>
-          <h3
-            className={ `${(shipping && shipping.free_shipping) && 'text-green-200'} text-xl font-bold leading-6 pt-2`
-          }>
-            {title}
-          </h3>
-          <h3
-            className='hidden'
-          >
-            Especificações técnicas
-          </h3>
-          <span className='font-medium text-gray-300'>
-            {`Quantidade em estoque. ${available_quantity}`}
-          </span>
-          <div className='flex items-center justify-between'>
+        <div className='px-2 flex flex-col gap-2 lg:justify-between lg:bg-red-300 lg:h-full lg:w-2/5'>
+          <div className='lg:flex lg:flex-col lg:gap-9 lg:bg-yellow-300'>
+            <h3
+              className='hidden text-3xl tracking-wide font-bold lg:block'
+            >
+              Especificações técnicas
+            </h3>
+            <h3
+              className={ `${(shipping && shipping.free_shipping) && 'text-green-200'} text-xl font-bold leading-6 pt-2 lg:text-3xl`
+            }>
+              {title}
+            </h3>
+            <span className='font-medium text-gray-300'>
+              {`Quantidade em estoque. ${available_quantity}`}
+            </span>
+          </div>
+          <div className='flex items-center justify-between lg:bg-green-300'>
             <h4
               className='text-accent text-4xl font-semibold'
             >
@@ -90,20 +92,20 @@ function ProductDetails() {
             <button
               onClick={ () => removeProductToCart(id) }
             >
-              <BiSolidMinusCircle
-                className='text-6xl text-gray-300'
+              <BiMinus
+                className='text-6xl text-gray-300 lg:text-4xl'
               />
             </button>
             <p
-              className='text-7xl text-gray-300'
+              className='text-7xl text-gray-300 lg:text-3xl lg:bg-gray-700 lg:rounded-full lg:w-9 lg:flex lg:justify-center'
             >
               { countProduct[id] || 0 }
             </p>
             <button
               onClick={ () => addProductToCart(product) }
             >
-              <BiSolidPlusCircle
-                className='text-6xl text-gray-300'
+              <BiPlus
+                className='text-6xl text-gray-300 lg:text-4xl'
               />
             </button>
           </div>
