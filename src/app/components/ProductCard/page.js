@@ -6,7 +6,7 @@ import React, { useContext } from 'react';
 function ProductCard({ product }) {
   const { addProductToCart } = useContext(AppContext);
   return (
-    <div key={product.id} className='flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto'>
+    <div key={product.id} className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto'>
       {product.shipping.free_shipping && (
         <div className='diagonal-div bg-blue-500 absolute top-5 -right-10 h-7 w-36 flex justify-center items-center shadow-md'>
           <p className='text-sm font-medium text-baseM'>Frete Grátis</p>

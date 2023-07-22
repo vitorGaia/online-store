@@ -26,6 +26,7 @@ export default function CustomizedRating() {
       precision={0.5}
       icon={<FavoriteIcon fontSize="inherit" />}
       emptyIcon={<FavoriteBorderIcon style={{color: '#424242'}} fontSize="inherit" />}
+      className='lg:text-4xl lg:flex lg:gap-3'
     />
   );
 }

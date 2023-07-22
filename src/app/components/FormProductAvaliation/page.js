@@ -16,7 +16,7 @@ function FormProductAvaliation(props) {
   const mapAvaliations = avaliationsList.map((avaliation) => (
     <div
       key={ `avaliationId-${avaliation.avaliationId}` }
-      className='p-4 border-t-2 border-gray-800'
+      className='p-4 border-t-2 border-gray-800 lg:mt-12'
     >
       <div className='flex justify-between'>
         <h4 className='font-bold text-lg'>{avaliation.email}</h4>
@@ -27,12 +27,20 @@ function FormProductAvaliation(props) {
   ));
 
   return (
-    <div className='text-gray-300'>
-      <h3 className='p-2 text-2xl font-semibold'>Avaliações ↓</h3>
-      <form className='p-2 flex flex-col justify-center items-center gap-2'>
-        <div className='grid grid-cols-2 gap-4 h-9 justify-center items-center'>
+    <div
+      className='text-font w-full bg-slate-200 lg:px-48 lg:py-12'
+    >
+      <h3
+        className='p-2 text-2xl font-semibold lg:text-center'
+      >
+        Avaliações
+      </h3>
+      <form
+        className='p-2 flex flex-col justify-center items-center gap-2 lg:bg-baseM lg:px-72 lg:py-14'
+      >
+        <div className='flex gap-4 h-9 justify-center items-center lg:justify-between lg:gap-16'>
           <input
-            className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-sm'
+            className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 w-3/4 placeholder:text-gray-700 rounded-sm lg:w-full'
             type='email'
             placeholder='Email'
             name='email'
@@ -44,7 +52,7 @@ function FormProductAvaliation(props) {
           </div>
         </div>
         <textarea
-          className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 placeholder:text-gray-700 rounded-sm w-full h-28'
+          className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 placeholder:text-gray-700 rounded-sm w-full h-28 lg:w-full'
           placeholder='Mensagem'
           name='message'
           value={avaliation.message}

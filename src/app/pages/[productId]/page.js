@@ -44,13 +44,12 @@ function ProductDetails() {
 
   return (
     <section
-      className='bg-base w-screen min-h-screen text-font'
+      className='bg-base max-w-screen overflow-x-hidden min-h-screen text-font'
     >
       <Header />
       <main
         className='flex flex-col justify-center pt-14 pb-2 lg:pt-28 lg:pb-16 lg:gap-20 lg:px-24 lg:h-screen lg:w-screen lg:flex-row'
       >
-        {window.innerWidth < 600 && <CategoriesList />}
         <div className='lg:w-2/5 lg:h-full lg:flex lg:justify-center lg:items-center lg:rounded-md lg:bg-baseM lg:shadow-md relative overflow-auto'>
           {thumbnail && (
             <Image
@@ -70,12 +69,12 @@ function ProductDetails() {
         <div className='px-2 flex flex-col gap-2 lg:justify-between lg:h-full lg:w-2/5'>
           <div className='lg:flex lg:flex-col lg:gap-2'>
             <h3
-              className='hidden text-3xl tracking-wide font-bold lg:block'
+              className='hidden text-3xl tracking-wide font-bold lg:block lg:text-4xl'
             >
               Especificações técnicas
             </h3>
             <h3
-              className="text-xl font-bold leading-6 pt-2 lg:text-3xl"
+              className="text-xl font-bold leading-6 pt-2 lg:text-2xl"
             >
               {title}
             </h3>
@@ -104,7 +103,7 @@ function ProductDetails() {
               />
             </button>
             <p
-              className='text-7xl lg:bg-gray-500 lg:bg-opacity-20 lg:text-3xl lg:rounded-full lg:w-9 lg:flex lg:justify-center'
+              className='text-7xl lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
             >
               { countProduct[id] || 0 }
             </p>

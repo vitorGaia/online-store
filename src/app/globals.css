@@ -11,11 +11,11 @@
 
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: transparent;
+  background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--card-color);
+  background-color: #8B7E74;
   border-radius: 25px;
 }
 
