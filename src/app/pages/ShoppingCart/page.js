@@ -30,10 +30,10 @@ export default function ShoppingCart() {
 
   const renderProducts = uniqueArray.map((product) => (
     <div
-      className="flex p-2 gap-1 bg-baseM z-0 relative rounded-md lg:w-5/6 lg:bg-slate-100 lg:shadow-sm"
+      className="flex p-2 gap-1 z-0 relative rounded-sm lg:w-5/6 bg-slate-100 shadow-sm items-center"
       key={`shoppingCart${product.id}`}
     >
-      <button onClick={ () => removeAllProductToCart(product.id)} className="absolute top-3 left-3 text-red-400">
+      <button onClick={ () => removeAllProductToCart(product.id)} className="absolute top-3 left-3 text-red-400 hover:text-red-600 transition">
         <BiXCircle />
       </button>
       <Image
@@ -41,13 +41,13 @@ export default function ShoppingCart() {
         alt={ product.title }
         width={150}
         height={150}
-        className="rounded-md w-24 h-24"
+        className="rounded-sm w-24 h-24"
       />
       <div>
-        <Link href={`/pages/${product.id}`} className="">
+        <Link href={`/pages/${product.id}`} className="hover:text-accent transition">
           <h3 className="font-medium text-sm">{product.title}</h3>
         </Link>
-        <span className='font-normal text-xs'>
+        <span className='font-normal text-sm hidden lg:block'>
           {`Quantidade em estoque. ${product.available_quantity}`}
         </span>
         <h4
@@ -57,11 +57,11 @@ export default function ShoppingCart() {
         </h4>
       </div>
       <div className="flex justify-center items-center gap-1">
-        <button onClick={ () => removeProductToCart(product.id) }>
+        <button className="hover:text-accent transition" onClick={ () => removeProductToCart(product.id) }>
           <BiMinusCircle />
         </button>
         <span>{ countProduct[product.id] }</span>
-        <button onClick={ () => addProductToCart(product) }>
+        <button className="hover:text-accent transition" onClick={ () => addProductToCart(product) }>
           <BiPlusCircle />
         </button>
       </div>
@@ -72,7 +72,7 @@ export default function ShoppingCart() {
     <section className="bg-base overflow-x-hidden max-w-screen max-h-screen text-font">
       <Header />
       <main
-        className="flex flex-col justify-center pt-20 pb-6 gap-10 p-2 lg:max-h-screen lg:px-36 lg:pt-28 lg:pb-16 lg:flex-row"
+        className="flex flex-col justify-center pt-20 pb-8 gap-10 p-2 lg:max-h-screen lg:px-36 lg:pt-28 lg:pb-16 lg:flex-row min-h-screen"
       >
         <div className="flex flex-col gap-4 items-center lg:bg-baseM lg:overflow-auto lg:max-h-full lg:w-2/4 lg:py-8 lg:rounded-md lg:shadow-md">
           <h2 className="text-2xl pb-2 font-semibold">Carrinho de Compras</h2>
@@ -85,7 +85,7 @@ export default function ShoppingCart() {
           </h2>
           <Link
             href='/pages/Checkout'
-            className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-md w-full lg:w-80"
+            className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-md w-full lg:w-80 hover:bg-emerald-600 transition"
           >
             Finalizar Compra
           </Link>

@@ -61,8 +61,8 @@ function ProductDetails() {
             />
           )}
           {(shipping && shipping.free_shipping) && (
-            <div className='diagonal-div-reverse bg-blue-500 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-md'>
-              <p className='text-sm font-medium text-baseM'>Frete Grátis</p>
+            <div className='diagonal-div-reverse bg-cyan-500 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-md'>
+              <p className='text-sm font-semibold text-baseM'>Frete Grátis</p>
             </div>
           )}
         </div>
@@ -89,7 +89,7 @@ function ProductDetails() {
               {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
             </h4>
             <Link href='/pages/ShoppingCart'>
-              <BiCartAlt className='text-4xl font-semibold mr-7' />
+              <BiCartAlt className='text-4xl font-semibold mr-7 hover:text-accent transition' />
             </Link>
           </div>
           <div
@@ -99,11 +99,11 @@ function ProductDetails() {
               onClick={ () => removeProductToCart(id) }
             >
               <BiMinus
-                className='text-6xl lg:text-4xl'
+                className='text-6xl lg:text-4xl hover:text-accent transition'
               />
             </button>
             <p
-              className='text-7xl lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
+              className='text-7xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
             >
               { countProduct[id] || 0 }
             </p>
@@ -111,7 +111,7 @@ function ProductDetails() {
               onClick={ () => addProductToCart(product) }
             >
               <BiPlus
-                className='text-6xl lg:text-4xl'
+                className='text-6xl lg:text-4xl hover:text-accent transition'
               />
             </button>
           </div>

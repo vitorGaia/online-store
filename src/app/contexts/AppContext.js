@@ -1,6 +1,7 @@
 'use client';
 import { getProductsFromCategoryAndQuery } from '@/services/api';
 import { getAvaliationsFromLocalStorage, removeAllProductFromLocalStorage, removeProductFromLocalStorage, setAvaliationToLocalStorage, setProductToLocalStorage } from '@/services/localStorage';
+import { useRouter } from 'next/navigation';
 import { createContext, useEffect, useState } from 'react';
 
 const AppContext = createContext();
@@ -23,6 +24,7 @@ const AppProvider = ({ children }) => {
     message: '',
   });
   const [loading, setLoading] = useState(false);
+  const route = useRouter();
 
   const requestProducts = async (categoryId, queryInput) => {
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
@@ -92,6 +94,7 @@ const AppProvider = ({ children }) => {
         setLoading(false);
         return;
       }
+      if ( route !== '/') route.push('/');
       requestProducts(undefined, headerQueryInput);
       setActiveSearch(false);
       setLoading(false);

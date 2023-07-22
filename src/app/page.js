@@ -13,6 +13,17 @@ export default function Home() {
 
   const mapHomeProducts = homeProducts && homeProducts.map((product) => ProductCard({ product }));
 
+  const filters = (
+    <select>
+      <option></option>
+      <option></option>
+      <option></option>
+      <option></option>
+      <option></option>
+      <option></option>
+    </select>
+  );
+
   return (
     <section
       className="bg-base flex flex-col min-w-screen min-h-screen text-font"
@@ -36,13 +47,13 @@ export default function Home() {
           <p className='hidden lg:flex text-4xl text-accent font-semibold text-center tracking-wide'>
             VOCÊ AINDA NÃO<br/> REALIZOU UMA BUSCA
           </p>
-          <h3 className="text-center py-60 text-2xl font-medium text-gray-300 lg:py-0">
+          <h3 className="text-center py-56 text-2xl font-medium text-fontM lg:py-0">
             Digite algum termo de pesquisa<br/> ou escolha uma categoria :)
           </h3>
         </div>)}
 
         {(homeProducts && homeProducts.length === 0 && !loading)
-        && (<h3 className="text-center text-2xl font-medium py-60 text-gray-300">Nenhum produto foi encontrado ;(</h3>)}
+        && (<h3 className="text-center text-2xl font-medium py-56 text-fontM">Nenhum produto foi encontrado ;(</h3>)}
 
         {(homeProducts && homeProducts.length !== 0 && !loading) && mapHomeProducts}
       </main>

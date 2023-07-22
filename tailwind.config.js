@@ -17,7 +17,7 @@ module.exports = {
         base: '#F5F5F5',
         baseM: '#FFF',
         font: '#2B2730',
-        fontM: '#8B7E74'
+        fontM: '#94979D'
       },
       fontFamily: {
         'poppins': ['poppins', 'poppins'],

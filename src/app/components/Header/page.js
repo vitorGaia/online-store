@@ -4,7 +4,7 @@ import { AppContext } from "../../contexts/AppContext";
 import { getProductsFromLocalStorage } from "@/services/localStorage";
 import { BiCartAlt, BiSearchAlt } from "react-icons/bi";
 import Image from "next/image";
-import logo from "../../../../public/logo-frontend-online-store.svg";
+import logo from "../../../../public/logo-frontend-online-store.png";
 
 function Header() {
   const { attLocalStorage, setHeaderQueryInput, activeSearch, handleActiveSearch, shoppingCart } = useContext(AppContext);
@@ -26,12 +26,12 @@ function Header() {
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
-          className={`${activeSearch ? 'block' : 'hidden'} w-52 bg-gray-500 bg-opacity-10 font-normal text-lg px-2 h-9 placeholder:text-gray-700 rounded-full lg:w-60 lg:placeholder:text-gray-500 lg:px-4`}
+          className={`${activeSearch ? 'block' : 'hidden'} w-52 bg-gray-500 bg-opacity-10 font-normal text-lg px-2 h-9 placeholder:text-fontM rounded-full lg:w-60 lg:px-4 hover:bg-slate-300 transition`}
         />
 
         <button
           onClick={ () => handleActiveSearch('header') }
-          className={`${activeSearch ? 'absolute' : 'block'} right-2 top-1`}
+          className={`${activeSearch ? 'absolute' : 'block'} right-2 top-1 hover:text-accent transition`}
         >
           <BiSearchAlt className="text-3xl" />
         </button>
@@ -43,13 +43,13 @@ function Header() {
           alt='Front end online store logo'
           width='auto'
           height='auto'
-          className={`${activeSearch ? 'hidden' : ''} w-28 lg:w-32 lg:block`}
+          className={`${activeSearch ? 'hidden' : ''} w-36 lg:w-48 lg:block`}
         />
       </Link>
 
       <Link
         href='/pages/ShoppingCart'
-        className="flex justify-center itens-center"
+        className="flex justify-center itens-center hover:text-accent transition"
       >
         <BiCartAlt className="text-3xl" />
         <span className="font-semibold text-xs text-accent lg:font-bold lg:text-sm">{countProducts}</span>
