@@ -85,7 +85,7 @@ export default function ShoppingCart() {
           </h2>
           <Link
             href='/pages/Checkout'
-            className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-md w-full lg:w-80 hover:bg-emerald-600 transition"
+            className="bg-accent text-center text-base font-semibold text-lg p-2 rounded-md shadow-md w-full lg:w-80 hover:bg-accentHover transition"
           >
             Finalizar Compra
           </Link>

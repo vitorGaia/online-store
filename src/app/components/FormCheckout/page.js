@@ -1,4 +1,3 @@
-import { CreditCard } from '@mui/icons-material';
 import React from 'react';
 import { BiBarcode, BiLogoMastercard, BiLogoVisa } from 'react-icons/bi';
 
@@ -81,7 +80,7 @@ function FormCheckout() {
       </div>
       <button
         type='submit'
-        className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1 lg:w-96 hover:bg-emerald-600 transition'
+        className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-md px-1 lg:w-96 hover:bg-accentHover transition'
       >
         Comprar
       </button>

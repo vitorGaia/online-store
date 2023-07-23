@@ -61,7 +61,7 @@ function ProductDetails() {
             />
           )}
           {(shipping && shipping.free_shipping) && (
-            <div className='diagonal-div-reverse bg-cyan-500 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-md'>
+            <div className='diagonal-div-reverse bg-yellow-500 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-lg'>
               <p className='text-sm font-semibold text-baseM'>Frete Grátis</p>
             </div>
           )}
@@ -81,6 +81,9 @@ function ProductDetails() {
             <span className='font-medium text-lg'>
               {`Quantidade em estoque. ${available_quantity}`}
             </span>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper sapien vitae sagittis laoreet. Nam ut dolor vitae urna malesuada facilisis. Sed nec turpis et elit elementum condimentum. In risus magna, pulvinar vel posuere et, scelerisque non nibh. Vivamus sollicitudin elit nibh, vitae consectetur odio congue eget. Nunc aliquet nunc urna. Vestibulum sagittis facilisis nunc ac porta. Maecenas dictum scelerisque ornare. In condimentum viverra elit porta ornare
+            </p>
           </div>
           <div className='flex items-center justify-between lg:pb-11'>
             <h4
@@ -88,8 +91,8 @@ function ProductDetails() {
             >
               {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
             </h4>
-            <Link href='/pages/ShoppingCart'>
-              <BiCartAlt className='text-4xl font-semibold mr-7 hover:text-accent transition' />
+            <Link href='/pages/ShoppingCart' className='lg:bg-accent lg:w-24 lg:h-10 lg:rounded-sm lg:flex lg:justify-center lg:items-center hover:bg-accentHover lg:shadow-md'>
+              <BiCartAlt className='text-4xl font-semibold' />
             </Link>
           </div>
           <div

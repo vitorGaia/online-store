@@ -52,7 +52,7 @@ function Header() {
         className="flex justify-center itens-center hover:text-accent transition"
       >
         <BiCartAlt className="text-3xl" />
-        <span className="font-semibold text-xs text-accent lg:font-bold lg:text-sm">{countProducts}</span>
+        <span className="font-semibold text-xs text-fontM lg:font-bold lg:text-sm">{countProducts}</span>
       </Link>
     </div>
   );
