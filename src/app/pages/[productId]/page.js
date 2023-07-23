@@ -81,17 +81,17 @@ function ProductDetails() {
             <span className='font-medium text-lg'>
               {`Quantidade em estoque. ${available_quantity}`}
             </span>
-            <p>
+            <p className='hidden lg:block'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper sapien vitae sagittis laoreet. Nam ut dolor vitae urna malesuada facilisis. Sed nec turpis et elit elementum condimentum. In risus magna, pulvinar vel posuere et, scelerisque non nibh. Vivamus sollicitudin elit nibh, vitae consectetur odio congue eget. Nunc aliquet nunc urna. Vestibulum sagittis facilisis nunc ac porta. Maecenas dictum scelerisque ornare. In condimentum viverra elit porta ornare
             </p>
           </div>
-          <div className='flex items-center justify-between lg:pb-11'>
+          <div className='flex items-center justify-between lg:pb-11 px-4'>
             <h4
               className='text-accent text-4xl font-semibold'
             >
               {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
             </h4>
-            <Link href='/pages/ShoppingCart' className='lg:bg-accent lg:w-24 lg:h-10 lg:rounded-sm lg:flex lg:justify-center lg:items-center hover:bg-accentHover lg:shadow-md'>
+            <Link href='/pages/ShoppingCart' className='bg-accent w-20 lg:w-24 lg:h-10 rounded-sm flex justify-center items-center hover:bg-accentHover shadow-md'>
               <BiCartAlt className='text-4xl font-semibold' />
             </Link>
           </div>
