@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <div
-      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm z-10 lg:backdrop-blur-3xl lg:h-16 lg:px-10"
+      className="fixed flex top-0 left-0 w-full backdrop-blur-3xl h-14 p-2 px-4 items-center justify-between shadow-sm z-10 lg:backdrop-blur-3xl lg:h-16 lg:px-10 overflow-hidden"
     >
       <div
         className="flex justify-center itens-center gap-3 relative"

@@ -38,9 +38,9 @@ function FormProductAvaliation(props) {
       <form
         className='p-2 flex flex-col justify-center items-center gap-2 lg:bg-baseM lg:px-72 lg:py-14 lg:rounded-md shadow-md'
       >
-        <div className='flex gap-4 h-9 justify-center items-center lg:justify-between lg:gap-16'>
+        <div className='flex gap-4 h-9 justify-center items-center lg:justify-between lg:gap-16 lg:w-full'>
           <input
-            className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 h-9 w-3/4 placeholder:text-gray-700 rounded-sm lg:w-full'
+            className='border-b-2 font-normal text-lg px-2 h-9 w-3/4 lg:w-full placeholder:text-fontM rounded-sm bg-gray-500 bg-opacity-10 border-fontM hover:bg-slate-300 transition'
             type='email'
             placeholder='Email'
             name='email'
@@ -52,7 +52,7 @@ function FormProductAvaliation(props) {
           </div>
         </div>
         <textarea
-          className='bg-gray-800 bg-opacity-20 border-b-2 border-gray-800 font-normal text-lg px-2 placeholder:text-gray-700 rounded-sm w-full h-28 lg:w-full'
+          className='placeholder:text-fontM rounded-sm bg-gray-500 bg-opacity-10 border-fontM hover:bg-slate-300 transition border-b-2 font-normal text-lg px-2 w-full h-28 lg:w-full'
           placeholder='Mensagem'
           name='message'
           value={avaliation.message}
@@ -61,7 +61,7 @@ function FormProductAvaliation(props) {
         <button
           type='button'
           onClick={ () => addAvaliation(props.productId) }
-          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1 mb-2'
+          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1 mb-2 hover:bg-emerald-600'
         >
           Avaliar
         </button>

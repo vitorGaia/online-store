@@ -24,11 +24,13 @@ const AppProvider = ({ children }) => {
     message: '',
   });
   const [loading, setLoading] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
   const route = useRouter();
 
   const requestProducts = async (categoryId, queryInput) => {
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
     setGlobalState({ ...globalState, homeProducts: products.results });
+    setShowFilter(true);
   };
 
   const addProductToCart = (product) => {
@@ -116,6 +118,25 @@ const AppProvider = ({ children }) => {
     return;
   };
 
+  const handleFilters = (selectedValue) => {
+    setLoading(true);
+    const { homeProducts } = globalState;
+    let filteredProducts = [...homeProducts];
+  
+    if (selectedValue === 'priceDesc') {
+      filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (selectedValue === 'priceAsc') {
+      filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (selectedValue === 'nameDesc') {
+      filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (selectedValue === 'nameAsc') {
+      filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    setGlobalState({ ...globalState, homeProducts: filteredProducts });
+    setLoading(false);
+  };
+
   const values = {
     globalState, setGlobalState,
     headerQueryInput, setHeaderQueryInput,
@@ -135,6 +156,8 @@ const AppProvider = ({ children }) => {
     handleActiveSearch,
     avaliations, setAvaliations,
     loading,
+    handleFilters,
+    showFilter, setShowFilter,
   };
 
   return (

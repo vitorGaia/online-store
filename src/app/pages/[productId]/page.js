@@ -99,11 +99,11 @@ function ProductDetails() {
               onClick={ () => removeProductToCart(id) }
             >
               <BiMinus
-                className='text-6xl lg:text-4xl hover:text-accent transition'
+                className='text-5xl lg:text-4xl hover:text-accent transition'
               />
             </button>
             <p
-              className='text-7xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
+              className='text-5xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
             >
               { countProduct[id] || 0 }
             </p>
@@ -111,7 +111,7 @@ function ProductDetails() {
               onClick={ () => addProductToCart(product) }
             >
               <BiPlus
-                className='text-6xl lg:text-4xl hover:text-accent transition'
+                className='text-5xl lg:text-4xl hover:text-accent transition'
               />
             </button>
           </div>
