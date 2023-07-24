@@ -26,7 +26,7 @@ export default function Home() {
 
   const filters = (
     <select
-      className='fixed top-20 right-32 h-8 w-64 text-lg font-medium bg-slate-200 pl-4 hidden lg:block hover:bg-slate-300 transition rounded-sm'
+      className={`${!homeProducts || homeProducts.length === 0 ? 'lg:hidden' : 'lg:block'} hidden fixed top-20 right-32 h-8 w-64 text-lg font-medium bg-slate-200 pl-4 hover:bg-slate-300 transition rounded-sm`}
       onChange={ (e) => handleFilters(e.target.value) }
     >
       <option>Selecione um filtro</option>

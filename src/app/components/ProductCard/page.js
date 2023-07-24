@@ -8,8 +8,8 @@ function ProductCard({ product }) {
   return (
     <div key={product.id} className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto hover:transform hover:scale-105 transition'>
       {product.shipping.free_shipping && (
-        <div className='diagonal-div bg-yellow-500 absolute top-5 -right-10 h-7 w-36 flex justify-center items-center shadow-lg'>
-          <p className='text-sm font-medium text-baseM'>Frete Grátis</p>
+        <div className='diagonal-div bg-yellow-400 absolute top-5 -right-10 h-7 w-36 flex justify-center items-center shadow-lg'>
+          <p className='text-sm font-medium lg:font-semibold text-baseM'>Frete Grátis</p>
         </div>
       )}
       <Link href={`/pages/${product.id}`}>

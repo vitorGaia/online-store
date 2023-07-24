@@ -61,7 +61,7 @@ function ProductDetails() {
             />
           )}
           {(shipping && shipping.free_shipping) && (
-            <div className='diagonal-div-reverse bg-yellow-500 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-lg'>
+            <div className='diagonal-div-reverse bg-yellow-400 absolute top-7 -left-8 h-7 w-36 flex justify-center items-center shadow-lg'>
               <p className='text-sm font-semibold text-baseM'>Frete Grátis</p>
             </div>
           )}
@@ -91,7 +91,7 @@ function ProductDetails() {
             >
               {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
             </h4>
-            <Link href='/pages/ShoppingCart' className='bg-accent w-20 lg:w-24 lg:h-10 rounded-sm flex justify-center items-center hover:bg-accentHover shadow-md'>
+            <Link href='/pages/ShoppingCart' className='bg-accent w-20 lg:w-24 lg:h-10 rounded-md flex justify-center items-center hover:bg-accentHover shadow-md'>
               <BiCartAlt className='text-4xl font-semibold' />
             </Link>
           </div>

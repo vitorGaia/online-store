@@ -30,7 +30,7 @@ export default function ShoppingCart() {
 
   const renderProducts = uniqueArray.map((product) => (
     <div
-      className="flex p-2 gap-1 z-0 relative rounded-sm lg:w-5/6 bg-slate-100 shadow-sm items-center"
+      className="flex p-2 gap-1 z-0 relative rounded-sm lg:w-5/6 bg-slate-100 shadow-sm items-center lg:justify-between"
       key={`shoppingCart${product.id}`}
     >
       <button onClick={ () => removeAllProductToCart(product.id)} className="absolute top-3 left-3 text-red-400 hover:text-red-600 transition">
@@ -81,7 +81,7 @@ export default function ShoppingCart() {
         </div>
         <div className="flex flex-col lg:w-2/4 lg:items-center lg:justify-center lg:gap-6">
           <h2 className="p-2 m-2 text-center font-semibold text-2xl">
-            { `Valor total. R$${countTotalPrice.toFixed(2)}` }
+            { `Valor total. R$${countTotalPrice}` }
           </h2>
           <Link
             href='/pages/Checkout'

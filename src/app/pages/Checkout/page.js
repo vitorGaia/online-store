@@ -17,6 +17,7 @@ function Checkout(props) {
     countProductPrice,
     uniqueArray,
     attLocalStorage,
+    countTotalPrice,
   } = useContext(AppContext);
   
   useEffect(() => {
@@ -60,6 +61,9 @@ function Checkout(props) {
         >
           <h3 className="text-2xl py-2 font-medium lg:font-semibold">Revise seus produtos</h3>
           { renderProducts }
+          <h2 className="p-2 m-2 text-center font-semibold text-2xl">
+            { `Valor total. R$${countTotalPrice}` }
+          </h2>
         </div>
         <div className='lg:flex'>
           <FormCheckout />

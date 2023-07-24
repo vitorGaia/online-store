@@ -2,7 +2,8 @@
 import { getProductsFromCategoryAndQuery } from '@/services/api';
 import { getAvaliationsFromLocalStorage, removeAllProductFromLocalStorage, removeProductFromLocalStorage, setAvaliationToLocalStorage, setProductToLocalStorage } from '@/services/localStorage';
 import { useRouter } from 'next/navigation';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
+import Swal from 'sweetalert2';
 
 const AppContext = createContext();
 
@@ -25,7 +26,25 @@ const AppProvider = ({ children }) => {
   });
   const [loading, setLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
+  const [formCheckout, setFormCheckout] = useState({
+    nome: '',
+    cpf: '',
+    email: '',
+    telefone: '',
+    cep: '',
+    endereco: '',
+    complemento: '',
+    numero: '',
+    cidade: '',
+    estado: '',
+    pagamento: '',
+    valorTotal: '',
+  });
   const route = useRouter();
+
+  const handleFormCheckout = (e) => {
+    setFormCheckout({ ...formCheckout, [e.target.name]: e.target.value });
+  };
 
   const requestProducts = async (categoryId, queryInput) => {
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
@@ -35,17 +54,17 @@ const AppProvider = ({ children }) => {
 
   const addProductToCart = (product) => {
     setProductToLocalStorage(product);
-    setAttLocalStorage(true);
+    setAttLocalStorage(!attLocalStorage);
   };
 
   const removeProductToCart = (productId) => {
     removeProductFromLocalStorage(productId);
-    setAttLocalStorage(true);
+    setAttLocalStorage(!attLocalStorage);
   };
 
   const removeAllProductToCart = (productId) => {
     removeAllProductFromLocalStorage(productId);
-    setAttLocalStorage(true);
+    setAttLocalStorage(!attLocalStorage);
   };
 
   const countProduct = shoppingCart.reduce((acc, crr) => {
@@ -68,7 +87,7 @@ const AppProvider = ({ children }) => {
     return acc;
   }, {});
 
-  const countTotalPrice = Object.values(countProductPrice).reduce((acc, crr) => acc + crr, 0);
+  const countTotalPrice = Object.values(countProductPrice).reduce((acc, crr) => acc + crr, 0).toFixed(2);
 
   const uniqueArray = shoppingCart.filter((obj, index, self) => {
     return index === self.findIndex((o) => o.id === obj.id);
@@ -78,7 +97,7 @@ const AppProvider = ({ children }) => {
 
   const addAvaliation = (productId) => {
     setAvaliationToLocalStorage({ ...avaliation, productId});
-    setAttLocalStorage(true);
+    setAttLocalStorage(!attLocalStorage);
     setAvaliation({
       avaliationId: avaliations.length + 1,
       productId: '',
@@ -137,6 +156,38 @@ const AppProvider = ({ children }) => {
     setLoading(false);
   };
 
+  const exibirAlerta = () => {
+    Swal.fire({
+      title: 'Compra finalizada!',
+      text: `Obrigado ${formCheckout.nome.split(' ')[0]} por comprar na nossa loja, nenhuma de suas informações ficará guardada.`,
+      icon: 'success',
+      confirmButtonText: 'Fechar'
+    });
+  };
+
+  const finishCheckout = () => {
+    exibirAlerta();
+    setGlobalState({ ...globalState, homeProducts: undefined })
+    setShoppingCart([]);
+    localStorage.removeItem('cartProducts');
+    setAttLocalStorage(!attLocalStorage);
+    setFormCheckout({
+      nome: '',
+      cpf: '',
+      email: '',
+      telefone: '',
+      cep: '',
+      endereco: '',
+      complemento: '',
+      numero: '',
+      cidade: '',
+      estado: '',
+      pagamento: '',
+      valorTotal: '',
+    });
+    route.push('/');
+  };
+
   const values = {
     globalState, setGlobalState,
     headerQueryInput, setHeaderQueryInput,
@@ -158,6 +209,9 @@ const AppProvider = ({ children }) => {
     loading,
     handleFilters,
     showFilter, setShowFilter,
+    handleFormCheckout,
+    formCheckout, setFormCheckout,
+    finishCheckout
   };
 
   return (
