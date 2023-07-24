@@ -39,7 +39,7 @@ function ProductDetails() {
     setAttLocalStorage(false);
   }, [attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
-  const { id, title, thumbnail, shipping, price, available_quantity } = product && product;
+  const { id, title, thumbnail, shipping, price, available_quantity } = product;
 
   return (
     <section
@@ -57,8 +57,7 @@ function ProductDetails() {
             src={ thumbnail }
             alt={ title }
             width={500}
-            height={100}
-            quality={100}
+            height={500}
             />
           )}
           {(shipping && shipping.free_shipping) && (
@@ -129,7 +128,7 @@ function ProductDetails() {
           </div>
         </div>
       </main>
-      
+
       <FormProductAvaliation productId={ productId } />
     </section>
   );
