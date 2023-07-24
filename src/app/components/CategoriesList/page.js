@@ -26,7 +26,7 @@ function CategoriesList() {
         id="category"
         type="button"
         value={category.id}
-        onClick={ (e) => handleActiveSearch('category', e.target.value) }
+        onClick={ (e) => handleActiveSearch('category', e) }
         className="text-lg font-normal tracking-wide h-9 rounded-sm"
       >
       {category.name}

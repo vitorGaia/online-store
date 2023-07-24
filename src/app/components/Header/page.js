@@ -27,6 +27,7 @@ function Header() {
           type="text"
           placeholder="Pesquisa"
           onChange={ (e) => setHeaderQueryInput(e.target.value) }
+          onKeyDown={ (e) => e.key === 'Enter' && handleActiveSearch('header')}
           className={`${activeSearch ? 'block' : 'hidden'} w-52 bg-gray-500 bg-opacity-10 font-normal text-lg px-2 h-9 placeholder:text-fontM rounded-full lg:w-60 lg:px-4 hover:bg-slate-300 transition`}
         />
 

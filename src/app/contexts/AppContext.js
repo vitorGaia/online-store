@@ -108,7 +108,7 @@ const AppProvider = ({ children }) => {
     });
   };
 
-  const handleActiveSearch = (requestType, targetValue) => {
+  const handleActiveSearch = (requestType, e) => {
     setLoading(true);
     if (activeSearch && requestType === 'header') {
       if (headerQueryInput === '') {
@@ -123,13 +123,13 @@ const AppProvider = ({ children }) => {
       return;
     }
     else if (activeSearch && requestType === 'category') {
-      requestProducts( targetValue, undefined);
+      requestProducts( e.target.value, undefined);
       setActiveSearch(false);
       setLoading(false);
       return;
     }
     else if (!activeSearch && requestType === 'category') {
-      requestProducts( targetValue, undefined);
+      requestProducts( e.target.value, undefined);
       setLoading(false);
       return;
     }
