@@ -39,7 +39,7 @@ function ProductDetails() {
     setAttLocalStorage(false);
   }, [attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
-  const { id, title, thumbnail, shipping, price, available_quantity } = product;
+  const { id, title, thumbnail, shipping, price, available_quantity } = product && product;
 
   return (
     <section
@@ -113,7 +113,7 @@ function ProductDetails() {
             </button>
 
             <p
-              className='text-5xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
+              className='text-5xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center lg:font-medium'
             >
               { countProduct[id] || 0 }
             </p>
