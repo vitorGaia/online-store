@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 
 function ProductCard({ product, addProductToCart }) {
-  const { free_shipping } = product.shipping && product.shipping;
+  const { free_shipping } = (product.shipping !== undefined) && product.shipping;
 
   return (
     <div key={product.id} className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto hover:transform hover:scale-105 transition'>
