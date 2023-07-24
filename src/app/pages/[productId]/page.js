@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../../contexts/AppContext';
 import FormProductAvaliation from '../../components/FormProductAvaliation/page';
-import CategoriesList from '@/app/components/CategoriesList/page';
 import { BiCartAlt, BiMinus, BiPlus } from "react-icons/bi";
 import Link from 'next/link';
 
@@ -46,7 +45,9 @@ function ProductDetails() {
     <section
       className='bg-base max-w-screen overflow-x-hidden min-h-screen text-font'
     >
+
       <Header />
+
       <main
         className='flex flex-col justify-center pt-14 pb-2 lg:pt-28 lg:pb-16 lg:gap-20 lg:px-24 lg:h-screen lg:w-screen lg:flex-row'
       >
@@ -66,6 +67,7 @@ function ProductDetails() {
             </div>
           )}
         </div>
+
         <div className='px-2 flex flex-col gap-2 lg:justify-between lg:h-full lg:w-2/5'>
           <div className='lg:flex lg:flex-col lg:gap-2'>
             <h3
@@ -73,18 +75,22 @@ function ProductDetails() {
             >
               Especificações técnicas
             </h3>
+
             <h3
               className="text-xl font-bold leading-6 pt-2 lg:text-2xl"
             >
               {title}
             </h3>
+
             <span className='font-medium text-lg'>
               {`Quantidade em estoque. ${available_quantity}`}
             </span>
+
             <p className='hidden lg:block'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper sapien vitae sagittis laoreet. Nam ut dolor vitae urna malesuada facilisis. Sed nec turpis et elit elementum condimentum. In risus magna, pulvinar vel posuere et, scelerisque non nibh. Vivamus sollicitudin elit nibh, vitae consectetur odio congue eget. Nunc aliquet nunc urna. Vestibulum sagittis facilisis nunc ac porta. Maecenas dictum scelerisque ornare. In condimentum viverra elit porta ornare
             </p>
           </div>
+
           <div className='flex items-center justify-between lg:pb-11 px-4'>
             <h4
               className='text-accent text-4xl font-semibold'
@@ -95,6 +101,7 @@ function ProductDetails() {
               <BiCartAlt className='text-4xl font-semibold' />
             </Link>
           </div>
+
           <div
             className='flex justify-center items-center align-middle gap-6 h-24 lg:absolute lg:bottom-20 lg:right-80'
           >
@@ -105,11 +112,13 @@ function ProductDetails() {
                 className='text-5xl lg:text-4xl hover:text-accent transition'
               />
             </button>
+
             <p
               className='text-5xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center'
             >
               { countProduct[id] || 0 }
             </p>
+
             <button
               onClick={ () => addProductToCart(product) }
             >
@@ -120,6 +129,7 @@ function ProductDetails() {
           </div>
         </div>
       </main>
+      
       <FormProductAvaliation productId={ productId } />
     </section>
   );
