@@ -62,7 +62,7 @@ function FormProductAvaliation(props) {
         <button
           type='button'
           onClick={ () => addAvaliation(props.productId) }
-          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1 mb-2 hover:bg-emerald-600'
+          className='bg-accent tracking-wider font-bold text-xl text-base w-full h-10 mt-1 py-0.5 leading-4 rounded shadow-lg px-1 mb-2 hover:accentHover transition'
         >
           Avaliar
         </button>
