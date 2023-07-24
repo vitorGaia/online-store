@@ -19,7 +19,7 @@ function CategoriesList() {
   const mapCategories = categories.map((category) => (
     <label
       key={category.id}
-      className="flex justify-center lg:justify-start lg:pl-8 hover:text-accent hover:transform hover:scale-105 transition"
+      className="flex justify-center lg:justify-start lg:pl-8 hover:text-accentHover hover:transform hover:scale-105 transition"
       htmlFor="category"
     >
       <button

@@ -43,7 +43,7 @@ function ProductCard({ product, addProductToCart }) {
 
       <button
         onClick={() => addProductToCart(product)}
-        className='bg-accent tracking-wide font-bold text-lg w-full h-12 mt-1 py-0.5 leading-4 rounded shadow-md px-1 text-baseM hover:bg-accentHover transition'
+        className='bg-accent tracking-wide font-bold text-lg w-full h-12 mt-1 py-0.5 leading-4 rounded shadow-md px-1 text-baseM hover:bg-accentHover transition active:bg-accentHover'
       >
         Adicionar ao Carrinho
       </button>

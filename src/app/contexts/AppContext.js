@@ -47,6 +47,7 @@ const AppProvider = ({ children }) => {
   };
 
   const requestProducts = async (categoryId, queryInput) => {
+    setLoading(true);
     const products = await getProductsFromCategoryAndQuery(categoryId, queryInput);
     setGlobalState({ ...globalState, homeProducts: products.results });
     setShowFilter(true);
@@ -211,7 +212,8 @@ const AppProvider = ({ children }) => {
     showFilter, setShowFilter,
     handleFormCheckout,
     formCheckout, setFormCheckout,
-    finishCheckout
+    finishCheckout,
+    loading, setLoading,
   };
 
   return (
