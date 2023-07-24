@@ -5,9 +5,13 @@ import React from 'react';
 
 function ProductCard({ product, addProductToCart }) {
   const { id, title, thumbnail, price, shipping } = product !== undefined && product;
+  const formatPrice = price && price.toFixed(2).replace('.', ',');
 
   return (
-    <div key={id} className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto hover:transform hover:scale-105 transition'>
+    <div
+      key={id}
+      className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto hover:transform hover:scale-105 transition'
+    >
 
       {shipping && shipping.free_shipping && (
         <div className='diagonal-div bg-yellow-400 absolute top-5 -right-10 h-7 w-36 flex justify-center items-center shadow-lg'>
@@ -34,7 +38,7 @@ function ProductCard({ product, addProductToCart }) {
       </Link>
 
       <p className='text-lg font-semibold text-center'>
-        {`R$ ${price.toFixed(2)}`}
+        {`R$ ${formatPrice}`}
       </p>
 
       <button

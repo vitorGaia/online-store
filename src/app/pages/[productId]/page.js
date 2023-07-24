@@ -40,6 +40,7 @@ function ProductDetails() {
   }, [attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
   const { id, title, thumbnail, shipping, price, available_quantity } = product !== undefined && product;
+  const formatPrice = price && (countProductPrice[id] || price).toFixed(2).replace('.', ',');
 
   return (
     <section
@@ -94,7 +95,7 @@ function ProductDetails() {
             <h4
               className='text-accent text-4xl font-semibold'
             >
-              {`R$${ (countProductPrice[id] || price)?.toFixed(2) }`}
+              {`R$ ${formatPrice}`}
             </h4>
             <Link href='/pages/ShoppingCart' className='bg-accent w-20 lg:w-24 lg:h-10 rounded-md flex justify-center items-center hover:bg-accentHover shadow-md'>
               <BiCartAlt className='text-4xl font-semibold' />

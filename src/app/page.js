@@ -23,7 +23,11 @@ export default function Home() {
   }, [setShowFilter]);
 
   const mapHomeProducts = homeProducts && homeProducts.map((product) => (
-    <ProductCard key={product.id} product={product} addProductToCart={addProductToCart} />
+    <ProductCard
+      key={product.id}
+      product={product}
+      addProductToCart={addProductToCart}
+    />
   ));
 
   const filters = (
