@@ -4,37 +4,37 @@ import Link from 'next/link';
 import React from 'react';
 
 function ProductCard({ product, addProductToCart }) {
-  // const { free_shipping } = product.shipping !== undefined && product.shipping;
+  const { id, title, thumbnail, price, shipping } = product && product;
 
   return (
-    <div key={product.id} className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto hover:transform hover:scale-105 transition'>
+    <div key={id} className='overflow-x-hidden flex flex-col justify-center gap-1 w-72 max-h-96 p-3 text-font bg-baseM shadow-md rounded-md relative overflow-auto hover:transform hover:scale-105 transition'>
 
-      {/* {free_shipping && (
+      {shipping && shipping.free_shipping && (
         <div className='diagonal-div bg-yellow-400 absolute top-5 -right-10 h-7 w-36 flex justify-center items-center shadow-lg'>
           <p className='text-sm font-medium lg:font-semibold text-baseM'>Frete Grátis</p>
         </div>
-      )} */}
+      )}
 
-      <Link href={`/pages/${product.id}`}>
+      <Link href={`/pages/${id}`}>
         <Image
-          src={product.thumbnail}
-          alt={product.title}
+          src={thumbnail}
+          alt={title}
           width={500}
           height={500}
           placeholder="blur"
-          blurDataURL={product.thumbnail}
+          blurDataURL={thumbnail}
           className='w-11/12 pl-5 rounded-md'
         />
 
         <div className='h-6 mt-1 overflow-hidden'>
           <p className='font-medium truncate px-6 text-lg'>
-            {product.title}
+            {title}
           </p>
         </div>
       </Link>
 
       <p className='text-lg font-semibold text-center'>
-        {`R$ ${product.price.toFixed(2)}`}
+        {`R$ ${price.toFixed(2)}`}
       </p>
 
       <button
