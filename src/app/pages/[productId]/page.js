@@ -39,7 +39,7 @@ function ProductDetails() {
     setAttLocalStorage(false);
   }, [attLocalStorage, setAttLocalStorage, setShoppingCart]);
 
-  const { id, title, thumbnail, shipping, price, available_quantity } = product && product;
+  const { id, title, thumbnail, shipping, price, available_quantity } = product !== undefined && product;
 
   return (
     <section
