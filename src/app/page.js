@@ -22,7 +22,9 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
   }, [setShowFilter]);
 
-  const mapHomeProducts = homeProducts && homeProducts.map((product) => ProductCard({ product, addProductToCart }));
+  const mapHomeProducts = homeProducts && homeProducts.map((product) => (
+    <ProductCard key={product.id} product={product} addProductToCart={addProductToCart} />
+  ));
 
   const filters = (
     <select
