@@ -1,3 +1,4 @@
+'use client';
 import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../contexts/AppContext';
 import { getAvaliationsFromLocalStorage } from '@/services/localStorage';

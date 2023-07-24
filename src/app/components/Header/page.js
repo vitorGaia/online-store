@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../contexts/AppContext";

@@ -1,3 +1,4 @@
+'use client';
 import { AppContext } from '@/app/contexts/AppContext';
 import React, { useContext } from 'react';
 import { BiBarcode, BiLogoMastercard, BiLogoVisa } from 'react-icons/bi';
