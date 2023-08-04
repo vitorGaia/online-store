@@ -35,7 +35,7 @@ export default function Home() {
       className={
         `${!homeProducts || homeProducts.length === 0 ? 'lg:hidden hidden' : 'lg:block block'}
         ${activeCategories && 'hidden'}
-        fixed top-20 right-6 h-10 font-medium bg-slate-200 pl-4 rounded-sm
+        fixed top-20 right-6 h-10 font-medium bg-gray-500 bg-opacity-10 pl-4 rounded-sm
         lg:top-20 lg:right-32 lg:h-8 lg:w-64 text-lg hover:shadow transition`
       }
       onChange={ (e) => handleFilters(e.target.value) }
@@ -59,7 +59,6 @@ export default function Home() {
           className={`
           ${(!homeProducts && !activeSearch) && 'lg:grid-cols-1' } 
           ${(homeProducts && !activeCategories) && 'lg:grid-cols-4 lg:pt-32 lg:px-32 pt-36'} 
-          ${(activeSearch && homeProducts) && 'lg:grid-cols-3 lg:pl-96 lg:pt-32'} 
           ${(homeProducts && activeCategories) && 'lg:grid-cols-3 lg:pl-96 lg:pt-32 lg:pr-20 lg:mr-2'} 
           ${(!homeProducts && activeSearch) && 'lg:pl-80'} 
           flex flex-col justify-center items-center pt-16 pb-2 px-2 gap-6 lg:gap-10 lg:grid lg:pt-16 lg:min-h-screen lg:pb-10`}

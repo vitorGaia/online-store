@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { getProductsFromLocalStorage } from '@/services/localStorage';
 import { AppContext } from '../../contexts/AppContext';
 import FormProductAvaliation from '../../components/FormProductAvaliation/page';
-import { BiCartAlt, BiMinus, BiPlus } from "react-icons/bi";
+import { HiOutlineShoppingCart, HiPlus, HiMinus } from "react-icons/hi2";
 import Link from 'next/link';
 
 function ProductDetails() {
@@ -50,7 +50,7 @@ function ProductDetails() {
       <Header />
 
       <main
-        className='flex flex-col justify-center pt-14 pb-2 lg:pt-28 lg:pb-16 lg:gap-20 lg:px-24 lg:h-screen lg:w-screen lg:flex-row'
+        className='flex flex-col justify-center pt-14 pb-4 lg:pt-28 lg:pb-16 lg:gap-20 lg:px-24 lg:h-screen lg:w-screen lg:flex-row'
       >
         <div className='lg:w-2/5 lg:h-full lg:flex lg:justify-center lg:items-center lg:rounded-md lg:bg-baseM lg:shadow-md relative overflow-auto'>
           {thumbnail && (
@@ -68,10 +68,10 @@ function ProductDetails() {
           )}
         </div>
 
-        <div className='px-2 flex flex-col gap-2 lg:justify-between lg:h-full lg:w-2/5'>
-          <div className='lg:flex lg:flex-col lg:gap-2'>
+        <div className='px-2 flex flex-col gap-4 lg:h-full lg:w-2/5 lg:gap-10'>
+          <div className='flex flex-col gap-2 lg:gap-6'>
             <h3
-              className='hidden text-3xl tracking-wide font-bold lg:block lg:text-3xl'
+              className='hidden text-3xl tracking-wide font-bold text-fontM lg:block lg:text-3xl'
             >
               Especificações técnicas
             </h3>
@@ -89,43 +89,49 @@ function ProductDetails() {
             <p className='hidden lg:block'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper sapien vitae sagittis laoreet. Nam ut dolor vitae urna malesuada facilisis. Sed nec turpis et elit elementum condimentum. In risus magna, pulvinar vel posuere et, scelerisque non nibh. Vivamus sollicitudin elit nibh, vitae consectetur odio congue eget. Nunc aliquet nunc urna. Vestibulum sagittis facilisis nunc ac porta. Maecenas dictum scelerisque ornare. In condimentum viverra elit porta ornare
             </p>
-          </div>
 
-          <div className='flex items-center justify-between lg:pb-11 px-4'>
             <h4
               className='text-accent text-4xl font-semibold'
             >
               {`R$ ${formatPrice}`}
             </h4>
-            <Link href='/pages/ShoppingCart' className='bg-accent w-20 lg:w-24 lg:h-10 rounded-md flex justify-center items-center hover:bg-accentHover shadow-md'>
-              <BiCartAlt className='text-4xl font-semibold' />
-            </Link>
           </div>
 
-          <div
-            className='flex justify-center items-center align-middle gap-6 h-24 lg:absolute lg:bottom-20 lg:right-80'
-          >
-            <button
-              onClick={ () => removeProductToCart(id) }
+          <div className='flex items-center h-12 gap-7 lg:justify-evenly'>
+            <Link
+              href='/pages/ShoppingCart'
+              className='bg-accent w-3/5 h-full lg:w-2/3 lg:h-12 rounded-md flex justify-center items-center gap-2 hover:bg-accentHover shadow-md'
             >
-              <BiMinus
-                className='text-5xl lg:text-4xl hover:text-accent transition'
-              />
-            </button>
+              <span className='text-xl text-font font-medium'>Ir ao carrinho</span>
+              <HiOutlineShoppingCart className='text-2xl lg:text-3xl' />
+            </Link>
 
-            <p
-              className='text-5xl font-normal lg:bg-gray-500 lg:bg-opacity-20 lg:text-2xl lg:rounded-full lg:w-8 lg:flex lg:justify-center lg:font-medium'
+            <div
+              className='bg-gray-500 bg-opacity-10 flex shadow-md justify-center items-center h-9 rounded-full overflow-hidden'
             >
-              { countProduct[id] || 0 }
-            </p>
+              <button
+                onClick={ () => removeProductToCart(id) }
+              >
+                <HiMinus
+                  className='text-xl w-7 lg:text-2xl hover:text-accent transition lg:w-10'
+                />
+              </button>
 
-            <button
-              onClick={ () => addProductToCart(product) }
-            >
-              <BiPlus
-                className='text-5xl lg:text-4xl hover:text-accent transition'
-              />
-            </button>
+              <p
+                className='text-lg w-7 text-center border-x border-fontM lg:w-10 lg:text-2xl'
+              >
+                { countProduct[id] || 0 }
+              </p>
+
+              <button
+                onClick={ () => addProductToCart(product) }
+                className='bg-gray-600 bg-opacity-10 h-full'
+              >
+                <HiPlus
+                  className='text-xl w-7 lg:text-2xl hover:text-accent transition lg:w-10'
+                />
+              </button>
+            </div>
           </div>
         </div>
       </main>
