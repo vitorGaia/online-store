@@ -14,6 +14,7 @@ const AppProvider = ({ children }) => {
   });
   const [headerQueryInput, setHeaderQueryInput] = useState('');
   const [activeSearch, setActiveSearch] = useState(false);
+  const [activeCategories, setActiveCategories] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
   const [attLocalStorage, setAttLocalStorage] = useState(false);
   const [avaliations, setAvaliations] = useState(getAvaliationsFromLocalStorage() || []);
@@ -110,33 +111,25 @@ const AppProvider = ({ children }) => {
 
   const handleActiveSearch = (requestType, e) => {
     setLoading(true);
-    if (activeSearch && requestType === 'header') {
+    if (route !== '/') route.push('/');
+    if (requestType === 'header') {
       if (headerQueryInput === '') {
         setActiveSearch(!activeSearch);
         setLoading(false);
         return;
       }
-      if ( route !== '/') route.push('/');
       requestProducts(undefined, headerQueryInput);
-      setActiveSearch(false);
+      setHeaderQueryInput('');
       setLoading(false);
       return;
     }
-    else if (activeSearch && requestType === 'category') {
-      requestProducts( e.target.value, undefined);
-      setActiveSearch(false);
+    if (requestType === 'category') {
+      requestProducts(e.target.value, undefined);
+      setActiveCategories(false);
       setLoading(false);
       return;
     }
-    else if (!activeSearch && requestType === 'category') {
-      requestProducts( e.target.value, undefined);
-      setLoading(false);
-      return;
-    }
-    setActiveSearch(!activeSearch);
-    setLoading(false);
-    return;
-  };
+  }
 
   const handleFilters = (selectedValue) => {
     setLoading(true);
@@ -193,6 +186,7 @@ const AppProvider = ({ children }) => {
     globalState, setGlobalState,
     headerQueryInput, setHeaderQueryInput,
     activeSearch, setActiveSearch,
+    activeCategories, setActiveCategories,
     requestProducts,
     shoppingCart, setShoppingCart,
     attLocalStorage, setAttLocalStorage,

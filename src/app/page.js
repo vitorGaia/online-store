@@ -8,7 +8,7 @@ import Header from './components/Header/page';
 import Loading from './components/Loading/page';
 
 export default function Home() {
-  const { globalState, loading, activeSearch, handleFilters, showFilter, setShowFilter, addProductToCart } = useContext(AppContext);
+  const { globalState, loading, activeSearch, handleFilters, showFilter, setShowFilter, addProductToCart, activeCategories } = useContext(AppContext);
   const { homeProducts } = globalState;
 
   useEffect(() => {
@@ -32,7 +32,12 @@ export default function Home() {
 
   const filters = (
     <select
-      className={`${!homeProducts || homeProducts.length === 0 ? 'lg:hidden' : 'lg:block'} hidden fixed top-20 right-32 h-8 w-64 text-lg font-medium bg-slate-200 pl-4 hover:bg-slate-300 transition rounded-sm`}
+      className={
+        `${!homeProducts || homeProducts.length === 0 ? 'lg:hidden hidden' : 'lg:block block'}
+        ${activeCategories && 'hidden'}
+        fixed top-20 right-6 h-10 font-medium bg-slate-200 pl-4 rounded-sm
+        lg:top-20 lg:right-32 lg:h-8 lg:w-64 text-lg hover:shadow transition`
+      }
       onChange={ (e) => handleFilters(e.target.value) }
     >
       <option>Selecione um filtro</option>
@@ -53,10 +58,11 @@ export default function Home() {
         <main
           className={`
           ${(!homeProducts && !activeSearch) && 'lg:grid-cols-1' } 
-          ${(homeProducts && !activeSearch) && 'lg:grid-cols-4 lg:pt-32 lg:px-28'} 
+          ${(homeProducts && !activeCategories) && 'lg:grid-cols-4 lg:pt-32 lg:px-32 pt-36'} 
           ${(activeSearch && homeProducts) && 'lg:grid-cols-3 lg:pl-96 lg:pt-32'} 
+          ${(homeProducts && activeCategories) && 'lg:grid-cols-3 lg:pl-96 lg:pt-32 lg:pr-20 lg:mr-2'} 
           ${(!homeProducts && activeSearch) && 'lg:pl-80'} 
-          flex flex-col justify-center items-center pt-20 pb-2 px-2 gap-6 lg:gap-10 lg:grid lg:pt-16 lg:min-h-screen lg:pb-10`}
+          flex flex-col justify-center items-center pt-16 pb-2 px-2 gap-6 lg:gap-10 lg:grid lg:pt-16 lg:min-h-screen lg:pb-10`}
         >
 
           <CategoriesList />
@@ -65,12 +71,12 @@ export default function Home() {
 
           {(!homeProducts && !loading)
           && (
-            <div className='flex flex-col items-center lg:py-40 lg:gap-6'>
-              <p className='hidden lg:flex text-4xl text-accent font-semibold text-center tracking-wide'>
+            <div className='flex flex-col gap-4 items-center pt-32 lg:py-40 lg:gap-6'>
+              <p className='text-3xl lg:flex lg:text-4xl text-accent font-semibold text-center tracking-wide'>
                 VOCÊ AINDA NÃO<br/> REALIZOU UMA BUSCA
               </p>
 
-              <h3 className="text-center py-56 text-2xl font-medium text-fontM lg:py-0">
+              <h3 className="text-center py-0 text-xl lg:text-2xl font-medium text-fontM">
                 Digite algum termo de pesquisa<br/> ou escolha uma categoria :)
               </h3>
             </div>
