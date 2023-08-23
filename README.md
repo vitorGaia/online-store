@@ -44,7 +44,7 @@ $ npm run dev
 ```
 
 ### 🚀 Deploy da aplicação
-Neste [Link](https://gaia-online-store.vercel.app/) você pode ver meu projeto em ação;
+Neste [Link](https://gaia-online-store.vercel.app/) você pode ver meu projeto em ação.
 
 <div align="center">
   <img
